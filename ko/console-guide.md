@@ -5,7 +5,7 @@
 * 복제 그룹을 생성합니다.
 * **Console > Database > EasyCache**의 **복제 그룹**탭에서 **생성** 버튼을 누르면 복제 그룹 생성 창이 나타납니다.
 
-![rep_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/rep_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/rep_001.PNG)
 
 * 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 생성 버튼을 눌러주세요.
     * 복제그룹 이름: 복제 그룹 이름을 입력합니다.
@@ -30,7 +30,7 @@
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](http://static.toastoven.net/prod_easycache/19.4.22/rep_de_002.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.4.22/rep_de_002.PNG)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
@@ -49,7 +49,7 @@
 * 가용성을 높이기 위해서 Redis가 지원하는 Replica 노드를 만들 수 있습니다.
 * Replica 노드를 만들기 위해서 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 누릅니다.
 
-![nod_ad_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/nod_ad_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/nod_ad_001.PNG)
 
 * Replica 노드가 생성될 가용성 영역을 선택합니다. 원본 Master 노드와 다른 가용성 영역을 선택하면 가용성이 좋습니다. 
 * Master 노드의 정보를 확인할 수 있습니다.
@@ -68,7 +68,7 @@
 * Replica 에서 Master 로 변경하는 것을 승격이라고 합니다.
 * Master 노드로 승격시킬 Replica 노드를 선택하고 **마스터 승격** 버튼을 누릅니다.
 
-![nod_ra_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/nod_ra_001.PNG)
+![nod_ra_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/nod_ra_001.PNG)
 
 * 내용을 확인하고 **OK**버튼 누릅니다.
 * 원본 Master 노드는 Replica 노드로 변경되고 Replica 노드는 Master 노드로 변경되어 복제 관계를 자동으로 유지합니다.
@@ -86,7 +86,7 @@
     * 설정 프로파일: Redis 설정을 변경할 수 있습니다.
     * VPC Subnet: private network 통신을 원하는 Compute & Network 상품의 subnet 으로 변경할 수 있습니다.
 
-![rep_mo_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/rep_mo_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/rep_mo_001.PNG)
 
 * 변경 내용을 확인하고 **변경** 버튼을 누릅니다.
 * 한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
@@ -97,7 +97,7 @@
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![mon_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/mon_001.PNG)
+![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/mon_001.PNG)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
@@ -139,7 +139,7 @@
 * EasyCache는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
 * 검색어 란에 단어를 입력하고 검색할 때 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과를 표시합니다.
 
-![eve_002.PNG](http://static.toastoven.net/prod_easycache/19.4.22/eve_002.PNG)
+![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.4.22/eve_002.PNG)
 
 * 시간, 날짜별로 검색할 수 있습니다.
 * 이벤트 데이타 보존 기간은 1개월입니다.
@@ -168,14 +168,14 @@
 
 * EasyCache는 원하는 리소스에서 발생하는 특정 이벤트에 대한 알림을 수신그룹에 전달할 수 있습니다.
 
-![eve_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/eve_001.PNG)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/eve_001.PNG)
 
 * 원하는 알림을 설정하기 위하여 알림 탭을 선택한 후, 생성 버튼을 누릅니다.
 * 원하는 알림의 이름을 입력하고, 알림 설정을 통해 설정하고자하는 타입을 선택합니다.
     * 설정 후 OK 버튼을 클릭합니다.
 * 일시적으로 알림 기능을 On / Off 할 수 있습니다.
 
-![not_re_001.PNG](http://static.toastoven.net/prod_easycache/19.4.22/not_re_001.PNG)
+![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.4.22/not_re_001.PNG)
 
 * 알림을 받을 수신자를 설정합니다.
     * 메일과 전화번호를 설정할 수 있습니다
@@ -190,7 +190,7 @@
 * EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
 * 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
 
-![pro_002.PNG](http://static.toastoven.net/prod_easycache/19.4.22/pro_002.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.4.22/pro_002.PNG)
 
     * 프로파일명: 프로파일 이름을 입력합니다.
     * 설명: 프로파일의 설명을 입력합니다.
