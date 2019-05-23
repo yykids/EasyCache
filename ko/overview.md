@@ -33,7 +33,7 @@ TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 
 ### 복제 그룹
 
 * 복제 그룹은 Standalone과 Replication 타입으로 제공합니다.
-* 복제 그룹은 최소 2GB~256GB 크기의 Memory를 지원합니다.
+* 복제 그룹은 최소 2GB~32GB 크기의 Memory를 지원합니다.
 * TOAST Cloud 의 Compute & Network 상품에서 제공하는 모든 사양의 가상 장비로 복제 그룹을 생성 할 수 있습니다.
 * 복제 그룹의 운영체제에 직접 접근 할 수 없으며, 오직 부여된 IP와 복제 그룹 생성 시 입력하신 port 를 통해서 Redis 서버에 접근 할 수 있습니다.
 * 복제 그룹은 사용자의 Compute & Network 상품의 VPC Subnet을 선택해야만 생성할 수 있으며, 이를 통하여 사용자의 Compute & Network 상품의 Instance들과 통신이 가능합니다.
@@ -41,7 +41,7 @@ TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 
 * 만약 Compute & Network 상품을 이용 중이라면, 복제 그룹 생성 시, 연결을 원하시는 subnet 을 설정 할 수 있습니다.
 * 연결된 subnet 에 있는 복제 그룹과 인스턴스 간에는 네트워크 연결이 활성화 됩니다.
 
-### Availability Zone
+###  가용성 영역
 
 * 복제 그룹이 생성될 논리적인 구역을 의미합니다.
 
