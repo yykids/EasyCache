@@ -5,7 +5,7 @@
 * 복제 그룹을 생성합니다.
 * **Console > Database > EasyCache**의 **복제 그룹**탭에서 **생성** 버튼을 누르면 복제 그룹 생성 창이 나타납니다.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_create_001.PNG)
 
 * 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 생성 버튼을 눌러주세요.
     * 복제그룹 이름: 복제 그룹 이름을 입력합니다.
@@ -30,7 +30,7 @@
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.05.23/rep_connection_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_connection_001.PNG)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
@@ -49,7 +49,7 @@
 * 가용성을 높이기 위해서 Redis가 지원하는 Replica 노드를 만들 수 있습니다.
 * Replica 노드를 만들기 위해서 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 누릅니다.
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/node_add_001.PNG)
 
 * Replica 노드가 생성될 가용성 영역을 선택합니다. 원본 Master 노드와 다른 가용성 영역을 선택하면 가용성이 좋습니다. 
 * Master 노드의 정보를 확인할 수 있습니다.
@@ -57,18 +57,29 @@
 * 노드정보는 그룹 상세에서 확인할 수 있습니다.
 * 생성하면서 자동으로 복제 관계가 됩니다.
 * 원본 Master 노드와 동일한 사양입니다.
-* 원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어 날 수 있습니다.  
+* 원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어 날 수 있습니다.
 
 ##### 제약 사항
 * 원본 Master 노드는 1개의 Replica 노드만 만들 수 있습니다.
 * Replica 노드의 Replica 노드를 만들 수 없습니다.
+
+### 복제 그룹 상세
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_detail_001.PNG)
+* 복제 그룹의 상세 정보를 확인 할 수 있습니다.
+    * 기본 정보
+    * 접속 정보
+    * 노드 정보
+    * 모니터링
+   
+* 생성된 복제 그룹의 갯수를 확인 할 수 있습니다. 
+* 복제 그룹의 일람을 최신 정보로 새로 고침을 할 수 있습니다.
 
 ### 마스터 승격
 
 * Replica 에서 Master 로 변경하는 것을 승격이라고 합니다.
 * Master 노드로 승격시킬 Replica 노드를 선택하고 **마스터 승격** 버튼을 누릅니다.
 
-![nod_ra_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/node_master_001.PNG)
+![nod_ra_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/node_master_001.PNG)
 
 * 내용을 확인하고 **OK**버튼 누릅니다.
 * 원본 Master 노드는 Replica 노드로 변경되고 Replica 노드는 Master 노드로 변경되어 복제 관계를 자동으로 유지합니다.
@@ -79,13 +90,12 @@
 * 새롭게 복제할 때에는 장애가 있는 원본 Master 노드를 삭제하고 Replica 노드를 추가합니다. 
 
 ### 복제 그룹 수정
-
 * 원본 복제 그룹을 선택하고 **수정** 버튼을 누릅니다.
     * 복제그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
     * 설명: 복제 그룹 설명을 변경할 수 있습니다.
     * 설정 프로파일: Redis 설정을 변경할 수 있습니다.
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_modify_001.PNG)
 
 * 변경 내용을 확인하고 **변경** 버튼을 누릅니다.
 * 한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
@@ -96,7 +106,7 @@
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/monitoring_001.PNG)
+![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/monitoring_001.PNG)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
@@ -190,7 +200,7 @@
 * EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
 * 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
 
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.05.23/profile_001.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.07.01/profile_001.PNG)
 
     * 프로파일명: 프로파일 이름을 입력합니다.
     * 설명: 프로파일의 설명을 입력합니다.
@@ -199,19 +209,36 @@
     * 이용중인 인스턴스에도 반영됩니다.
 * 등록한 프로파일을 삭제합니다.
     * 이용중인 인스턴스가 있는 프로파일은 삭제할 수 없습니다.
+* 기본 설정 정보가 있는 Default 프로파일을 제공합니다. 
+* Default 프로파일은 수정, 삭제 할 수 없습니다.
+* 프로파일의 상태를 확인 할 수 있습니다.
+    * 정상
+        * 프로파일을 수정, 삭제 할 수 있습니다.
+    * 변경 중
+        * 프로파일을 변경하였고, 변경 내용을 각 노드에 전파 중인 상태입니다.
+        * 변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제 할 수 없습니다.
+    * 이용 중
+        * 프로파일을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다.
+        * 프로파일이 이용 중 상태에서는 프로파일을 작성, 수정 할 수 없습니다.
+* 프로파일 상세
+![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/profile_detail_001.PNG)
+    * 프로파일의 상세 정보를 확인 할 수 있습니다.
+    * 항목 이름
+    * 입력 범위: 항목의 입력 범위
+    * 입력 값: 실제 설정된 값
+    * 설명: 항목에 대한 설명
 * 프로파일 항목
-    * timeout
-    * tcp-keepalive
-    * maxmemory-policy
-    * maxmemory-samples
-    * slowlog-log-slower-than
-    * slowlog-max-len
-    * latency-monitor-threshold
     * hash-max-ziplist-entries
-    * hash-max-ziplist-value
-    * list-max-ziplist-size
-    * list-compress-depth
-    * set-max-intset-entries
+    * hash-max-ziplist-value	
+    * latency-monitor-threshold
+    * list-compress-depth	
+    * list-max-ziplist-size	
+    * maxmemory-policy	
+    * maxmemory-samples	
+    * set-max-intset-entries	
+    * slowlog-log-slower-than	
+    * slowlog-max-len		
+    * tcp-keepalive	
+    * timeout	
     * zset-max-ziplist-entries
     * zset-max-ziplist-value
-    * activerehashing
