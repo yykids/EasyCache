@@ -5,7 +5,7 @@
 * 복제 그룹을 생성합니다.
 * **Console > Database > EasyCache**의 **복제 그룹**탭에서 **생성** 버튼을 누르면 복제 그룹 생성 창이 나타납니다.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/rep_create_001.PNG)
 
 * 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 생성 버튼을 눌러주세요.
     * 복제그룹 이름: 복제 그룹 이름을 입력합니다.
@@ -20,6 +20,10 @@
         * Default 프로파일를 제공합니다.
         * 설정 프로파일을 추가하여 선택할 수 있습니다.
     * VPC Subnet : 생성할 복제 그룹과 private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택합니다.
+    * 자동 백업 설정 : 자동 백업 사용 여부를 선택합니다.
+        * 백업 보관 기간: 1일부터 최대 30일까지 보관이 가능합니다.
+        * 백업 시작 시간: 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
+        * 백업 소요 시간: 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정이 가능합니다.
     * 입력하고 **생성** 버튼을 누릅니다.
     * 확인 화면에서 입력한 내용을 확인합니다.  
     * 최종적으로 **생성** 버튼을 누릅니다.
@@ -30,7 +34,7 @@
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_connection_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/rep_connection_001.PNG)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
@@ -49,7 +53,7 @@
 * 가용성을 높이기 위해서 Redis가 지원하는 Replica 노드를 만들 수 있습니다.
 * Replica 노드를 만들기 위해서 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 누릅니다.
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/node_add_001.PNG)
 
 * Replica 노드가 생성될 가용성 영역을 선택합니다. 원본 Master 노드와 다른 가용성 영역을 선택하면 가용성이 좋습니다. 
 * Master 노드의 정보를 확인할 수 있습니다.
@@ -64,7 +68,7 @@
 * Replica 노드의 Replica 노드를 만들 수 없습니다.
 
 ### 복제 그룹 상세
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_detail_001.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/rep_detail_001.PNG)
 * 복제 그룹의 상세 정보를 확인할 수 있습니다.
     * 기본 정보
     * 접속 정보
@@ -79,7 +83,7 @@
 * Replica 에서 Master 로 변경하는 것을 승격이라고 합니다.
 * Master 노드로 승격시킬 Replica 노드를 선택하고 **마스터 승격** 버튼을 누릅니다.
 
-![nod_ra_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/node_master_001.PNG)
+![nod_ra_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/node_master_001.PNG)
 
 * 내용을 확인하고 **OK**버튼 누릅니다.
 * 원본 Master 노드는 Replica 노드로 변경되고 Replica 노드는 Master 노드로 변경되어 복제 관계를 자동으로 유지합니다.
@@ -94,8 +98,12 @@
     * 복제그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
     * 설명: 복제 그룹 설명을 변경할 수 있습니다.
     * 설정 프로파일: Redis 설정을 변경할 수 있습니다.
+    * 자동 백업 설정 : 자동 백업 사용 여부를 선택합니다.
+        * 백업 보관 기간 : 1일부터 최대 30일까지 보관이 가능합니다.
+        * 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
+        * 백업 소요 시간 : 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정이 가능합니다.
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/rep_modify_001.PNG)
 
 * 변경 내용을 확인하고 **변경** 버튼을 누릅니다.
 * 한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
@@ -106,7 +114,7 @@
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/monitoring_001.PNG)
+![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/monitoring_001.PNG)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
@@ -142,13 +150,110 @@
     * 연결된 클라이언트
     * 성공율
 
+### 복제 그룹 감시
+* Master/Replica 구성에 한해서 양 노드 간 감시 모듈을 제공합니다.
+    * Master 노드에서는 Replica 노드의 커넥션을, Replica 노드에서는 Master 노드의 커넥션을 감시합니다.
+    * 감시 중인 노드의 커넥션에 문제가 발생했을 경우는 해당 노드에 대한 정보를 서버로 송신합니다.
+        * 서버는 노드 정보가 송신되면 우선적으로 접속이 끊어졌다는 "WARNING" 상태로 변경하고 이벤트(타입 "<span style="color:  #333333;;">instance_connection")가 </span>기록됩니다.
+        * 해당 노드에 대해서 실질적으로 장애가 발생했는지는 백그라운드로 체크합니다.
+            * 체크 결과 해당 노드에서 장애가 발생한 것으로 판단되면 노드 상태를 "이용불가"로 갱신하고 이벤트(타입 "<span style="color: #333333;;">instance_status</span><span style="color: #333333;;">")가 </span>기록됩니다.
+        * 장애가 발생한 노드가 Master 일 경우에는 그룹 상태를 "이용불가"로, Replica의 경우에는 그룹 상태를 "레플리케이션 이용불가"로 갱신합니다.
+    * 장애에서 정상으로 복귀될 경우는 "정상"으로 상태 정보를 갱신하며 이벤트(타입 "<span style="color:  #333333;;">instance_status")가 기록됩니다.</span>
+* 유저는 알람 설정에서 각 이벤트에 대한 통지를 설정할 수 있으며, 각 통지는 이벤트가 기록되는 시점에서 리얼타임으로 통지됩니다.
+
+#### 장애시 대응
+
+* Master 노드에서 장애가 발생했을 경우에는 유저는 Replica 노드를 Master로 승격시킬 수 있습니다.
+    * 장애 발생으로 인해 Replica를 승격시켰을 경우에는 그룹 내에 Master가 일시적으로 2대가 될 수 있습니다.
+    (장애가 발생한 기존 Master와 신규로 승격시킨 Master)
+    ![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/rep_watching_001.png)
+    * 장애가 발생한 Master 노드에 대해서는 노드 삭제 버튼을 통해서 수동으로 삭제합니다.
+    * Replica에서 장애가 발생한 경우에는 Replica 노드를 삭제하고 신규로 노드를 추가합니다.
+    
+    **감시 기능의 제약사항**
+
+    * 노드에서 쌍방향으로 감시하는 특성상 양 노드에 장애가 동시에 발생했을 경우에는 장애를 감지하지 못합니다.
+      * 회피책으로 노드 작성 시 가용 존을 서로 다르게 설정해야 합니다.
+      
+## 백업
+
+* EasyCache > **백업** 탭을 선택합니다.
+* 수동으로 백업 파일을 삭제할 수 있습니다.
+* 멀티 삭제가 가능합니다.
+* EasyCache에서는 Max Memory와 동일한 크기의 백업 볼륨을 제공합니다.
+* 백업 볼륨과 저장된 백업은 용량에 따라 별도 과금됩니다.
+* 백업이 실행되는 동안에는 백업으로 인한 성능 저하가 발생할 수 있습니다.
+* 서비스에 영향을 주지 않기 위해서, 서비스의 부하가 적은 시간에 백업을 하는 것이 유리합니다.
+* 검색어 란에 단어를 입력하고 검색할 때 백업 이름 또는 복제 그룹 이름을 대상으로 검색한 결과를 표시합니다.
+* 새로 고침을 이용하여 실시간으로 백업 파일을 확인할 수 있습니다.
+
+### 자동 백업
+
+![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/backup_001.PNG)
+
+* 지정된 시간에 자동적으로 RDB 파일을 백업합니다.
+* 백업 대상이 된 복제 그룹이 삭제되면 백업 파일도 삭제됩니다.
+* 백업 보관이 지나면 자동으로 백업 파일이 삭제됩니다.
+* 자동 백업은 백업 시작 시각부터 백업 소요 시간 사이 중 임의의 시점에 시작됩니다.
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/backup_002.PNG)
+* 기본 정보에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
+* 백업
+    * 백업 이름
+    * 복제 그룹 이름
+    * 백업 타입
+    * 백업 시작 일자
+    * 백업 보관 기간
+    * 백업 최종 보관일
+    * 캐쉬 사이즈 (복제 그룹에서 사용된 메모리 사이즈)
+    * 상태
+* 복제 그룹
+    * 복제 그룹 이름
+    * 인스턴스 타입
+    * 버젼
+    * Max Memory
+    * 서비스 포트
+    * 설정 프로파일
+    * VPC Subnet
+
+### 복원
+
+* 보관된 백업을 이용하여 원하는 시점으로 인스턴스를 복원할 수 있습니다.
+* 복원 시, 원본 인스턴스를 변경하지 않고 새로운 같은 사양의 인스턴스를 생성합니다.
+* 복원 시, 원본 인스턴스를 변경하지 않고 새로운 다른 사양의 인스턴스를 생성합니다.
+
+![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/restore_001.PNG)
+
+* 복원 내용
+    * 백업 이름: 복원을 하고자 하는 백업 파일 이름
+    * 복제 그룹 이름: 복제 그룹 이름을 입력합니다.
+    * 설명: 복제 그룹의 설명을 입력합니다.
+    * 서비스 포트: 백업 대상이 된 복제 그룹의 포트가 표시됩니다.
+        * Redis의 Port 번호를 변경할 수 있습니다.
+        * 10000 ~ 12000 사이로 설정할 수 있습니다.
+    * 버전: 백업 대상이 된 복제 그룹의 Redis 버전이 표시됩니다.
+        * 현재 3.2.12만 지원합니다.
+    * 인스턴스 타입: 백업 대상이 된 복제 그룹의 사양이 표시됩니다.
+        * 백업의 캐시 사이즈보다 큰 인스턴트 타입만 표시됩니다.
+        * 인스턴트 타입을 변경할 수 있습니다..
+    * 가용성 영역: 복제 그룹이 생성될 영역을 선택합니다.
+    * 설정 프로파일: 백업 대상이 된 복제 그룹의 Redis의 설정 파일이 표시됩니다.
+        * 설정 프로파일을 추가하여 변경할 수 있습니다.
+    * VPC Subnet : 백업 대상이 된 복제 그룹의 VPC Subnet가 표시됩니다.
+        * 생성할 복제 그룹과 private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택할 수 있습니다.
+    * 자동 백업 설정 : 자동 백업 사용 여부를 선택합니다.
+        * 백업 보관 기간 : 1일부터 최대 30일까지 보관이 가능합니다.
+        * 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
+        * 백업 지연 시간 : 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 3시간까지 지정이 가능합니다.
+    * 입력하고 **생성** 버튼을 누릅니다.
+* 생성된 복제 그룹은 복제 그룹 탭에서 확인할 수 있습니다.
+
 ## 이벤트
 
 * EasyCache > **이벤트** 탭을 선택합니다.
 * EasyCache는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
 * 검색어 란에 단어를 입력하고 검색할 때 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과를 표시합니다.
 
-![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.05.23/event_001.PNG)
+![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/event_001.PNG)
 
 * 시간, 날짜별로 검색할 수 있습니다.
 * 이벤트 데이타 보존 기간은 1개월입니다.
@@ -178,14 +283,14 @@
 
 * EasyCache는 원하는 리소스에서 발생하는 특정 이벤트에 대한 알림을 수신그룹에 전달할 수 있습니다.
 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/noti_001.PNG)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/noti_001.PNG)
 
 * 원하는 알림을 설정하기 위하여 알림 탭을 선택한 후, 생성 버튼을 누릅니다.
 * 원하는 알림의 이름을 입력하고, 알림 설정을 통해 설정하고자하는 타입을 선택합니다.
     * 설정 후 OK 버튼을 클릭합니다.
 * 일시적으로 알림 기능을 On / Off 할 수 있습니다.
 
-![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.05.23/noti_002.PNG)
+![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/noti_002.PNG)
 
 * 알림을 받을 수신자를 설정합니다.
     * 메일과 전화번호를 설정할 수 있습니다
@@ -200,7 +305,7 @@
 * EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
 * 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
 
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.07.01/profile_001.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/profile_001.PNG)
 
     * 프로파일명: 프로파일 이름을 입력합니다.
     * 설명: 프로파일의 설명을 입력합니다.
@@ -223,7 +328,7 @@
         * 복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다.
         * 프로파일이 이용중인 상태에서는 프로파일을 작성, 수정할 수 없습니다.
 * 프로파일 상세
-![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.07.01/profile_detail_001.PNG)
+![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/profile_detail_001.PNG)
     * 프로파일의 상세 정보를 확인할 수 있습니다.
     * 항목 이름
     * 입력 범위: 항목의 입력 범위
