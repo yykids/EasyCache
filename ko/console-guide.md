@@ -133,7 +133,7 @@
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![mon_001.PNG](https://static.toastoven.net/prod_easycache/19.09.04/monitoring_001.PNG)
+![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.09.04/monitoring_001.png)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
