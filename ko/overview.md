@@ -26,16 +26,19 @@ TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 
 * Redis 서버의 설정 정보를 프로파일로 관리할 수 있습니다.
 
 ### 백업
-* Redis의 메모리 데이터를 매일 1회, 일정한 시간에 영속화 하여 안전한 외부 스토리지에 저장합니다. 저장된 백업 데이터를 이용하여 언제든 새로운 복제그룹을 생성할 수 있습니다.
+* 메모리 데이터를 매일 1회, 지정한 시간에 자동으로 백업을 할 수 있습니다. 
+* 메모리 데이터를 원하는 시점에 즉시 수동으로 백업을 할 수 있습니다.
+* 안전한 외부 스토리지에 저장합니다. 
+* 저장된 백업 데이터를 이용하여 언제든 새로운 복제그룹을 생성할 수 있습니다.
 
 ## 용어 설명
 
 ### 복제 그룹
 
 * 복제 그룹은 Standalone과 Replication 타입으로 제공합니다.
-* 복제 그룹은 최소 2GB~64GB 크기의 Memory를 지원합니다.
+* 서버 스펙은 최소 2GB~64GB 크기의 Memory를 지원합니다.
 * TOAST Cloud 의 Compute & Network 상품에서 제공하는 모든 사양의 가상 장비로 복제 그룹을 생성 할 수 있습니다.
-* 복제 그룹의 운영체제에 직접 접근 할 수 없으며, 오직 부여된 IP와 복제 그룹 생성 시 입력하신 port 를 통해서 Redis 서버에 접근 할 수 있습니다.
+* 복제 그룹의 운영체제에 직접 접근 할 수 없으며, 오직 부여된 도메인과 복제 그룹 생성 시 입력하신 port 를 통해서 Redis 서버에 접근 할 수 있습니다.
 * 복제 그룹은 사용자의 Compute & Network 상품의 VPC Subnet을 선택해야만 생성할 수 있으며, 이를 통하여 사용자의 Compute & Network 상품의 Instance들과 통신이 가능합니다.
 * 복제 그룹은 사용자의 Subnet 이외의 외부 네트워크와 단절되어 있습니다. 외부에서 연결을 원하면 Floating IP 를 붙여야 합니다.
 * 만약 Compute & Network 상품을 이용 중이라면, 복제 그룹 생성 시, 연결을 원하시는 subnet 을 설정 할 수 있습니다.
@@ -51,7 +54,7 @@ TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 
 
 * 외부와 통신하기 위한 유동 IP 입니다.
 * Floating IP는 설정하고자 하는 인스턴스와 연결된 사용자 VPC Subnet에 Internet Gateway가 연결되어 있어야 사용이 가능합니다.
-* Floating IP 가 연결된 인스턴스의 Redis 는 외부에서 접속이 가능합니다.
+* Floating IP 가 연결된 인스턴스의 Redis 는 public 도메인을 통해서 외부에서 접속이 가능합니다.
 * Floating IP 는 생성하는 즉시 Redis 인스턴스와는 별도로 요금이 부과됩니다.
 
 ### 고가용성(자동HA)
