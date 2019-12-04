@@ -7,10 +7,10 @@
 ## 복제 그룹
 * **Console > Database > EasyCache**의 **복제 그룹**탭에서 **생성** 버튼을 누르면 복제 그룹 생성 창이 나타납니다.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_create_001.PNG)
 
 * 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 생성 버튼을 눌러주세요.
-    * 복제그룹 이름: 복제 그룹 이름을 입력합니다.
+    * 복제 그룹 이름: 복제 그룹 이름을 입력합니다.
     * 설명: 복제 그룹의 설명을 입력합니다.
     * 서비스 포트: Redis의 Port 번호를 입력합니다.
         * 10000 ~ 12000 사이로 설정할 수 있습니다.
@@ -24,7 +24,7 @@
     * 설정 프로파일: Redis의 설정 파일을 선택합니다.
         * Default 프로파일를 제공합니다.
         * 설정 프로파일을 추가하여 선택할 수 있습니다.
-    * VPC Subnet : 생성할 복제 그룹과 private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택합니다.
+    * VPC Subnet : private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택합니다. 선택하지 않을 경우에는 Default network가 임의로 설정됩니다.
     * 자동 백업 설정 : 자동 백업 사용 여부를 선택합니다.
         * 백업 보관 기간: 1일부터 최대 30일까지 보관이 가능합니다.
         * 백업 시작 시간: 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
@@ -40,7 +40,7 @@
 * 가용성을 높이기 위해서 Redis가 지원하는 Replica 노드를 만들 수 있습니다.
 * Replica 노드를 만들기 위해서 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 누릅니다.
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/rep_node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_node_add_001.PNG)
 
 * Replica 노드가 생성될 가용존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용존을 선택하면 가용성이 좋습니다.
 * Master 노드의 정보를 확인, 참고할 수 있습니다.
@@ -62,6 +62,9 @@
 
 ##### 제약사항
 * Replica 노드 추가시 HA설정이 실패하면 복제 그룹 > [기본 정보] 에서 HA재설정 버튼을 눌러 HA를 다시 설정할 수 있습니다.
+
+![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_ha_error_001.PNG)
+
 * 장애가 발생하여 장애 조치한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 난 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 standalone의 Master 노드로 변경됩니다.
 * 또한 standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 다시 새롭게 지정해 사용할 수 있습니다.
 * 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다.
@@ -69,7 +72,7 @@
 
 ### 복제 그룹 수정
 * 원본 복제 그룹을 선택하고 **수정** 버튼을 누릅니다.
-    * 복제그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
+    * 복제 그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
     * 설명: 복제 그룹 설명을 변경할 수 있습니다.
     * 설정 프로파일: Redis 설정을 변경할 수 있습니다.
     * Max Memory : 사용할 최대 메모리의 용량을 변경할 수 있습니다.
@@ -78,7 +81,7 @@
         * 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
         * 백업 소요 시간 : 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정이 가능합니다.
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_modify_001.PNG)
 
 * 변경 내용을 확인하고 **변경** 버튼을 누릅니다.
 * 한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
@@ -99,7 +102,7 @@
 * 정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
 * 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다.
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/19.11.08/manual_backup_001.PNG)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/19.12.03/manual_backup_001.PNG)
 
 * 수동 백업 파일을 만들기 위해서 대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 누릅니다.
     * 백업 이름: 백업 이름을 입력합니다.
@@ -114,7 +117,7 @@
 * 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성이 안되고 지연될 수 있습니다. 
 
 ### 복제 그룹 상세
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/rep_detail_001.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_detail_001.PNG)
 * 복제 그룹의 상세 정보를 확인할 수 있습니다.
     * 기본 정보
     * 접속 정보
@@ -127,7 +130,7 @@
 #### 기본 정보
 * 복제 그룹의 상세한 정보를 확인할 수 있습니다.
 * 확인 가능한 항목은 아래와 같습니다.
-    * 복제그룹 이름
+    * 복제 그룹 이름
     * 서비스 이름
     * 설명
     * 버전
@@ -140,17 +143,17 @@
     * 생성일
     * 자동백업 설정
         
-#### 복제그룹 접속
+#### 복제 그룹 접속
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.11.08/rep_connection_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_connection_001.PNG)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
 * 접속 가능한 도메인 정보를 확인할 수 있습니다.
-* Floating IP 를 연결하지 않은 Redis 노드는 외부에서 접근할 수 없습니다.
-* 플로팅IP 연결을 할 경우에는 public 도메인이 발행됩니다.
+* 플로팅IP 를 연결하지 않은 Redis 노드는 외부에서 접근할 수 없습니다.
+* 플로팅IP 연결을 할 경우에는 공인 도메인이 발행됩니다.
 * **복사**버튼을 누르면 도메인를 복사할 수 있습니다.
 * 접속 정보는 같은 VPC Subnet로 연결된 노드의 애플리케이션에서 사용할 수 있습니다.
 * 커맨드는 같은 VPC Subnet로 연결된 노드에서 실행 가능합니다.
@@ -160,7 +163,10 @@
     * 접속 제어 정보에 등록되지 않은 IP 는 접속이 불가능합니다.
     
 #### 노드 정보
-* 복제그룹의 노드에 상세한 정보를 확인 할 수 있습니다. 
+* 복제 그룹의 노드에 상세한 정보를 확인 할 수 있습니다. 
+
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_node_info_001.PNG)
+
 * 확인 가능한 항목은 아래와 같습니다.
     * 노드 이름
     * 종류
@@ -174,7 +180,7 @@
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.11.08/monitoring_001.PNG)
+![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.12.03/monitoring_001.PNG)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
@@ -206,10 +212,12 @@
     * set 실행 횟수
     * set usec/get calls
 * 모니터링 항목은 필터조건에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
+
+![filter_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/filter_001.PNG)
       
 ## 백업
 
-![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/backup_001.PNG)
+![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/backup_001.PNG)
 
 * EasyCache > **백업** 탭을 선택합니다.
 * 백업 파일을 단일 또는 복수 선택하여 삭제할 수 있습니다.
@@ -218,7 +226,7 @@
 * 검색어 란에 백업 이름 또는 복제 그룹 이름의 단어를 입력하고 검색하면 검색된 결과가 표시됩니다.
 * **새로 고침**을 이용하여 백업 파일 리스트을 갱신하여 정보를 확인할 수 있습니다.
 
-![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/backup_002.PNG)
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/backup_002.PNG)
 
 * 기본 정보에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
 * 백업
@@ -242,12 +250,12 @@
 
 ### 복원
 
-* 백업 파일을 선택하고 [복제그룹 복원]을 누룹니다.
+* 백업 파일을 선택하고 [복제 그룹 복원]을 누룹니다.
 * 보관된 백업 파일을 이용하여 메모리 데이터를 복원할 수 있습니다.
 * 복원 시, 원본 노드를 변경하지 않고 새로운 같은 사양의 노드를 생성합니다.
 * 복원 시, 원본 노드를 변경하지 않고 새로운 다른 사양의 노드를 생성합니다.
 
-![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/restore_001.PNG)
+![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/restore_001.PNG)
 
 * 복원 내용
     * 백업 이름: 복원을 하고자 하는 백업 파일 이름
@@ -268,7 +276,7 @@
     * 설정 프로파일: 백업 대상이 된 복제 그룹의 Redis의 설정 파일이 표시됩니다.
         * 설정 프로파일을 추가하여 변경할 수 있습니다.
     * VPC Subnet : 백업 대상이 된 복제 그룹의 VPC Subnet가 표시됩니다.
-        * 생성할 복제 그룹과 private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택할 수 있습니다.
+        * private network 통신을 원하는 Compute & Network 상품의 subnet 을 선택할 수 있습니다. 
     * 자동 백업 설정 : 자동 백업 사용 여부를 선택합니다.
         * 백업 보관 기간 : 1일부터 최대 30일까지 보관이 가능합니다.
         * 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
@@ -282,7 +290,7 @@
 * EasyCache는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
 * 검색어 란에 단어를 입력하고 검색할 때 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과를 표시합니다.
 
-![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.11.08/event_001.PNG)
+![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/event_001.PNG)
 
 * 시간, 날짜별로 검색할 수 있습니다.
 * 이벤트 데이타 보존 기간은 1개월입니다.
@@ -314,11 +322,11 @@
 
 * EasyCache는 원하는 리소스에서 발생하는 특정 이벤트에 대한 알림을 수신그룹에 전달할 수 있습니다.
 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/alarm_list_001.png)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_list_001.png)
 
 ### 알람 규칙
 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/alarm_create_001.png)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_create_001.png)
 
 * 알람을 발생시길 조건과 대상, 수신그룹을 지정하여 작성하는 알람의 트리거 입니다.
 * 원하는 알림을 설정하기 위하여 알림 탭을 선택한 후, 알람 규칙 생성 버튼을 누릅니다.
@@ -332,13 +340,13 @@
             * 입계값
         * 이벤트 조건: 상품 내에서 발생하는 모든 이벤트 중에서 알람을 받고 싶은 이벤트(이벤트 항목 참조)를 지정할 수 있습니다. 
     * 수신 그룹은 별도의 다이얼로그에서 확인, 추가를 할 수 있습니다.
-    * 작성한 알람 규칙은 기본적으로는 모든 복제그룹이 대상이지만, 대상 복제그룹에 복제그룹을 지정하여 특정 복제그룹용 알람 규칙을 작성할 수 있습니다.
+    * 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상이지만, 대상 복제 그룹에 복제 그룹을 지정하여 특정 복제 그룹용 알람 규칙을 작성할 수 있습니다.
     * 설정 후 OK 버튼을 클릭합니다.
 * 작성한 알람 규칙은 알람 기능을 사용 안함으로 변경하여 일시적으로 알람을 끌 수 있습니다.
 
 ### 수신 그룹
 
-![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.11.08/alarm_receiver_group_001.png)
+![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_receiver_group_001.png)
 
 * 알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다.
 * 수신그룹을 확인 하기 위해서는 알람 규칙 일람, 또는 알람 규칙 생성, 변경 화면의 수신 그룹 일람 버튼을 누릅니다.
@@ -347,13 +355,17 @@
     * TOAST 회원정보에 등록한 Email과 전화번호로 Email, 또는 SMS를 보낼 수 있습니다.
 * 알람 규칙에서 시용 중인 수신 그룹을 삭제하면 알람 규칙에서도 삭제를 하기 때문에, 다른 수신 그룹이 없는 알람 규칙의 경우 더 이상 알람을 보내지 않게 되므로 주의가 필요합니다.
 
+##### 제약 사항
+* 알람규칙의 대상 복제 그룹에 한개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제 한 경우, 알람은 유일한 대상 복제 그룹이 없어진 관계로 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
+* 알람규칙의 수신 그룹에 한개의 수신 그룹만을 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제 한 경우, 알람은 유일한 수신 그룹이 없어진 관계로 이후부터는 알람을 보낼 수 없게 됩니다. 
+
 ## 설정 프로파일
 
 ### 설정 프로파일 생성
 * EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
 * 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
 
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.08.02/profile_001.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/profile_001.PNG)
 
     * 프로파일명: 프로파일 이름을 입력합니다.
     * 설명: 프로파일의 설명을 입력합니다.
@@ -378,7 +390,7 @@
         
 ### 프로파일 상세
 
-![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.08.02/profile_detail_001.PNG)
+![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/profile_detail_001.PNG)
  
 * 프로파일의 상세 정보를 확인할 수 있습니다.
     * 항목 이름
