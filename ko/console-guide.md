@@ -7,7 +7,7 @@
 ## 복제 그룹
 * **Console > Database > EasyCache**의 **복제 그룹**탭에서 **생성** 버튼을 누르면 복제 그룹 생성 창이 나타납니다.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_create_001.PNG)
 
 * 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 생성 버튼을 눌러주세요.
     * 복제 그룹 이름: 복제 그룹 이름을 입력합니다.
@@ -40,7 +40,7 @@
 * 가용성을 높이기 위해서 Redis가 지원하는 Replica 노드를 만들 수 있습니다.
 * Replica 노드를 만들기 위해서 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 누릅니다.
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_node_add_001.PNG)
 
 * Replica 노드가 생성될 가용존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용존을 선택하면 가용성이 좋습니다.
 * Master 노드의 정보를 확인, 참고할 수 있습니다.
@@ -63,7 +63,7 @@
 ##### 제약사항
 * Replica 노드 추가시 HA설정이 실패하면 복제 그룹 > [기본 정보] 에서 HA재설정 버튼을 눌러 HA를 다시 설정할 수 있습니다.
 
-![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_ha_error_001.PNG)
+![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
 * 장애가 발생하여 장애 조치한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 난 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 standalone의 Master 노드로 변경됩니다.
 * 또한 standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 다시 새롭게 지정해 사용할 수 있습니다.
@@ -81,7 +81,7 @@
         * 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정이 가능합니다.
         * 백업 소요 시간 : 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정이 가능합니다.
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_modify_001.PNG)
 
 * 변경 내용을 확인하고 **변경** 버튼을 누릅니다.
 * 한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
@@ -102,7 +102,7 @@
 * 정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
 * 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다.
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/19.12.03/manual_backup_001.PNG)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/19.12.06/rep_manual_backup_001.PNG)
 
 * 수동 백업 파일을 만들기 위해서 대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 누릅니다.
     * 백업 이름: 백업 이름을 입력합니다.
@@ -117,21 +117,23 @@
 * 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성이 안되고 지연될 수 있습니다. 
 
 ### 복제 그룹 상세
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_detail_001.PNG)
 * 복제 그룹의 상세 정보를 확인할 수 있습니다.
-    * 기본 정보
-    * 접속 정보
-    * 노드 정보
-    * 모니터링
+   * 기본 정보
+   * 접속 정보
+   * 노드 정보
+   * 모니터링
    
 * 생성된 복제 그룹의 개수를 확인할 수 있습니다.
 * [새로 고침]을 복제 그룹의 일람을 최신 정보로 갱신할 수 있습니다.
 
 #### 기본 정보
+* 생성된 복제 그룹을 선택하고 **기본 정보**탭을 누릅니다.
 * 복제 그룹의 상세한 정보를 확인할 수 있습니다.
+
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_detail_001.PNG)
+
 * 확인 가능한 항목은 아래와 같습니다.
     * 복제 그룹 이름
-    * 서비스 이름
     * 설명
     * 버전
     * 서비스 포트
@@ -147,7 +149,7 @@
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_connection_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
@@ -163,9 +165,10 @@
     * 접속 제어 정보에 등록되지 않은 IP 는 접속이 불가능합니다.
     
 #### 노드 정보
+* 생성된 복제 그룹을 선택하고 **노드 정보**탭을 누릅니다.
 * 복제 그룹의 노드에 상세한 정보를 확인 할 수 있습니다. 
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/rep_node_info_001.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_node_info_001.PNG)
 
 * 확인 가능한 항목은 아래와 같습니다.
     * 노드 이름
@@ -176,11 +179,11 @@
     * 상태
 
 #### 모니터링
-
+* 생성된 복제 그룹을 선택하고 **모니터링**탭을 누릅니다.
 * EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 주기적으로 수집하고, 차트로 보여줍니다.
 * 특정 복제 그룹의 모니터링 항목이 보고 싶을 경우, 복제 그룹 목록에서 특정 복제 그룹을 선택하고 Monitoring 탭을 선택합니다.
 
-![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.12.03/monitoring_001.PNG)
+![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.12.06/rep_monitoring_001.PNG)
 
 * 차트 종류는 평균값을 지원합니다.
 * 1시간, 24시간 등의 버튼을 누를 때마다, 현재 시각을 기준으로 계산하여 갱신합니다.
@@ -213,11 +216,11 @@
     * set usec/get calls
 * 모니터링 항목은 필터조건에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
 
-![filter_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/filter_001.PNG)
+![filter_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_filter_001.PNG)
       
 ## 백업
 
-![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/backup_001.PNG)
+![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/backup_001.PNG)
 
 * EasyCache > **백업** 탭을 선택합니다.
 * 백업 파일을 단일 또는 복수 선택하여 삭제할 수 있습니다.
@@ -226,26 +229,25 @@
 * 검색어 란에 백업 이름 또는 복제 그룹 이름의 단어를 입력하고 검색하면 검색된 결과가 표시됩니다.
 * **새로 고침**을 이용하여 백업 파일 리스트을 갱신하여 정보를 확인할 수 있습니다.
 
-![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/backup_002.PNG)
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/backup_002.PNG)
 
 * 기본 정보에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
 * 백업
     * 백업 이름
-    * 복제 그룹 이름
+    * 설명
     * 백업 타입
-    * 백업 시작 일자
+    * 캐쉬 사이즈
+    * 백업 파일 사이즈
     * 백업 보관 기간
     * 백업 최종 보관일
-    * 캐쉬 사이즈 (복제 그룹에서 사용된 메모리 사이즈)
-    * 백업 파일 사이즈(RDB파일사이즈)
     * 상태
+    * 백업 시작 일자
 * 복제 그룹
     * 복제 그룹 이름
     * 인스턴스 타입
     * 버젼
     * Max Memory
     * 서비스 포트
-    * 설정 프로파일
     * VPC Subnet
 
 ### 복원
@@ -255,7 +257,7 @@
 * 복원 시, 원본 노드를 변경하지 않고 새로운 같은 사양의 노드를 생성합니다.
 * 복원 시, 원본 노드를 변경하지 않고 새로운 다른 사양의 노드를 생성합니다.
 
-![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/restore_001.PNG)
+![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/restore_001.PNG)
 
 * 복원 내용
     * 백업 이름: 복원을 하고자 하는 백업 파일 이름
@@ -284,13 +286,109 @@
     * 입력하고 **생성** 버튼을 누릅니다.
 * 생성된 복제 그룹은 복제 그룹 탭에서 확인할 수 있습니다.
 
+## 설정 프로파일
+
+### 설정 프로파일 생성
+* EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
+* 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
+
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/profile_001.PNG)
+
+    * 프로파일명: 프로파일 이름을 입력합니다.
+    * 설명: 프로파일의 설명을 입력합니다.
+* 항목 값을 입력하고 OK 버튼을 누릅니다.
+* 등록한 프로파일 정보를 수정합니다.
+    * 이용중인 노드에도 반영됩니다.
+* 등록한 프로파일을 삭제합니다.
+    * 이용중인 노드가 있는 프로파일은 삭제할 수 없습니다.
+* 기본 설정 정보가 있는 Default 프로파일을 제공합니다. 
+* Default 프로파일은 수정, 삭제할 수 없습니다.
+* 프로파일의 상태를 확인할 수 있습니다.
+    * 정상
+        * 프로파일을 수정, 삭제할 수 있습니다.
+    * 변경 적용중
+        * 프로파일을 변경하였고, 변경 내용을 각 노드에 전파 중인 상태입니다.
+        * 변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다.
+        * 변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다.
+    * 이용 중
+        * 프로파일을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다.
+        * 복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다.
+        * 프로파일이 이용중인 상태에서는 프로파일을 작성, 수정할 수 없습니다.
+        
+### 프로파일 상세
+
+![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/profile_002.PNG)
+ 
+* 프로파일의 상세 정보를 확인할 수 있습니다.
+    * 항목 이름
+    * 기입 예: 항목의 입력 예시
+    * 항목 값: 실제 설정된 값
+    * 설명: 항목에 대한 설명
+* 프로파일 항목
+    * hash-max-ziplist-entries
+    * hash-max-ziplist-value	
+    * latency-monitor-threshold
+    * list-compress-depth	
+    * list-max-ziplist-size	
+    * maxmemory-policy	
+    * maxmemory-samples	
+    * set-max-intset-entries	
+    * slowlog-log-slower-than	
+    * slowlog-max-len		
+    * tcp-keepalive	
+    * timeout	
+    * zset-max-ziplist-entries
+    * zset-max-ziplist-value
+    
+## 알람
+
+* EasyCache는 원하는 리소스에서 발생하는 특정 이벤트에 대한 알림을 수신그룹에 전달할 수 있습니다.
+
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_001.PNG)
+
+### 알람 규칙
+
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_002.PNG)
+
+* 알람을 발생시길 조건과 대상, 수신그룹을 지정하여 작성하는 알람의 트리거 입니다.
+* 원하는 알림을 설정하기 위하여 알림 탭을 선택한 후, 알람 규칙 생성 버튼을 누릅니다.
+* 알람 규칙에는 알람 발생 조건과 알람을 수신할 수신 그룹을 지정합니다.
+    * 알람의 발생 조건에는 메트릭 조건과 이벤트 조건, 2가지가 있습니다.
+        * 메트릭 조건: 캐쉬 인스턴스에서 수집한 각종 성능 지표 값(모니터링 항목 참조)을 이용하여 알람 조건을 지정하며 아래와 같은 조건을 지정할 수 있습니다.
+            * 메트릭 이름
+            * 연산자
+            * 집계의 종류
+            * 평가의 빈도 
+            * 입계값
+        * 이벤트 조건: 상품 내에서 발생하는 모든 이벤트 중에서 알람을 받고 싶은 이벤트(이벤트 항목 참조)를 지정할 수 있습니다. 
+    * 수신 그룹은 별도의 다이얼로그에서 확인, 추가를 할 수 있습니다.
+    * 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상이지만, 대상 복제 그룹에 복제 그룹을 지정하여 특정 복제 그룹용 알람 규칙을 작성할 수 있습니다.
+    * 설정 후 OK 버튼을 클릭합니다.
+* 작성한 알람 규칙은 알람 기능을 사용 안함으로 변경하여 일시적으로 알람을 끌 수 있습니다.
+
+### 수신 그룹
+
+![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_003.PNG)
+
+* 알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다.
+* 수신그룹을 확인 하기 위해서는 알람 규칙 일람, 또는 알람 규칙 생성, 변경 화면의 수신 그룹 일람 버튼을 누릅니다.
+* 원하는 수신그룹이 없을 경우 수신 그룹 일람에서 수신 그룹 생성 버튼을 눌러서 새로운 수신 그룹을 작성합니다.
+* 수신 그룹에서 지정할 수 있는 수신인은 프로젝트 멤버로 한정합니다.
+    * TOAST 회원정보에 등록한 Email과 전화번호로 Email, 또는 SMS를 보낼 수 있습니다.
+* 알람 규칙에서 시용 중인 수신 그룹을 삭제하면 알람 규칙에서도 삭제를 하기 때문에, 다른 수신 그룹이 없는 알람 규칙의 경우 더 이상 알람을 보내지 않게 되므로 주의가 필요합니다.
+
+##### 제약 사항
+* 알람규칙의 대상 복제 그룹에 한개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제 한 경우, 알람은 유일한 대상 복제 그룹이 없어진 관계로 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
+* 알람규칙의 수신 그룹에 한개의 수신 그룹만을 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제 한 경우, 알람은 유일한 수신 그룹이 없어진 관계로 이후부터는 알람을 보낼 수 없게 됩니다. 
+
+
 ## 이벤트
 
 * EasyCache > **이벤트** 탭을 선택합니다.
 * EasyCache는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
 * 검색어 란에 단어를 입력하고 검색할 때 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과를 표시합니다.
 
-![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/event_001.PNG)
+![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/event_001.PNG)
 
 * 시간, 날짜별로 검색할 수 있습니다.
 * 이벤트 데이타 보존 기간은 1개월입니다.
@@ -317,98 +415,3 @@
     * 연결 끊어짐 
     * 복구
     * 장해
-
-## 알람
-
-* EasyCache는 원하는 리소스에서 발생하는 특정 이벤트에 대한 알림을 수신그룹에 전달할 수 있습니다.
-
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_list_001.png)
-
-### 알람 규칙
-
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_create_001.png)
-
-* 알람을 발생시길 조건과 대상, 수신그룹을 지정하여 작성하는 알람의 트리거 입니다.
-* 원하는 알림을 설정하기 위하여 알림 탭을 선택한 후, 알람 규칙 생성 버튼을 누릅니다.
-* 알람 규칙에는 알람 발생 조건과 알람을 수신할 수신 그룹을 지정합니다.
-    * 알람의 발생 조건에는 메트릭 조건과 이벤트 조건, 2가지가 있습니다.
-        * 메트릭 조건: 캐쉬 인스턴스에서 수집한 각종 성능 지표 값(모니터링 항목 참조)을 이용하여 알람 조건을 지정하며 아래와 같은 조건을 지정할 수 있습니다.
-            * 메트릭 이름
-            * 연산자
-            * 집계의 종류
-            * 평가의 빈도 
-            * 입계값
-        * 이벤트 조건: 상품 내에서 발생하는 모든 이벤트 중에서 알람을 받고 싶은 이벤트(이벤트 항목 참조)를 지정할 수 있습니다. 
-    * 수신 그룹은 별도의 다이얼로그에서 확인, 추가를 할 수 있습니다.
-    * 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상이지만, 대상 복제 그룹에 복제 그룹을 지정하여 특정 복제 그룹용 알람 규칙을 작성할 수 있습니다.
-    * 설정 후 OK 버튼을 클릭합니다.
-* 작성한 알람 규칙은 알람 기능을 사용 안함으로 변경하여 일시적으로 알람을 끌 수 있습니다.
-
-### 수신 그룹
-
-![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/alarm_receiver_group_001.png)
-
-* 알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다.
-* 수신그룹을 확인 하기 위해서는 알람 규칙 일람, 또는 알람 규칙 생성, 변경 화면의 수신 그룹 일람 버튼을 누릅니다.
-* 원하는 수신그룹이 없을 경우 수신 그룹 일람에서 수신 그룹 생성 버튼을 눌러서 새로운 수신 그룹을 작성합니다.
-* 수신 그룹에서 지정할 수 있는 수신인은 프로젝트 멤버로 한정합니다.
-    * TOAST 회원정보에 등록한 Email과 전화번호로 Email, 또는 SMS를 보낼 수 있습니다.
-* 알람 규칙에서 시용 중인 수신 그룹을 삭제하면 알람 규칙에서도 삭제를 하기 때문에, 다른 수신 그룹이 없는 알람 규칙의 경우 더 이상 알람을 보내지 않게 되므로 주의가 필요합니다.
-
-##### 제약 사항
-* 알람규칙의 대상 복제 그룹에 한개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제 한 경우, 알람은 유일한 대상 복제 그룹이 없어진 관계로 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
-* 알람규칙의 수신 그룹에 한개의 수신 그룹만을 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제 한 경우, 알람은 유일한 수신 그룹이 없어진 관계로 이후부터는 알람을 보낼 수 없게 됩니다. 
-
-## 설정 프로파일
-
-### 설정 프로파일 생성
-* EasyCache는 변경이 가능한 Redis의 설정을 프로파일 형태로 등록하여 관리할 수 있습니다.
-* 변경이 가능한 Redis의 설정을 프로파일로 등록하기 위하여 Configuration 탭을 선택한 후, 생성 버튼을 누릅니다.
-
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.12.03/profile_001.PNG)
-
-    * 프로파일명: 프로파일 이름을 입력합니다.
-    * 설명: 프로파일의 설명을 입력합니다.
-* 항목 값을 입력하고 OK 버튼을 누릅니다.
-* 등록한 프로파일 정보를 수정합니다.
-    * 이용중인 노드에도 반영됩니다.
-* 등록한 프로파일을 삭제합니다.
-    * 이용중인 노드가 있는 프로파일은 삭제할 수 없습니다.
-* 기본 설정 정보가 있는 Default 프로파일을 제공합니다. 
-* Default 프로파일은 수정, 삭제할 수 없습니다.
-* 프로파일의 상태를 확인할 수 있습니다.
-    * 정상
-        * 프로파일을 수정, 삭제할 수 있습니다.
-    * 변경 적용중
-        * 프로파일을 변경하였고, 변경 내용을 각 노드에 전파 중인 상태입니다.
-        * 변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다.
-        * 변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다.
-    * 이용 중
-        * 프로파일을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다.
-        * 복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다.
-        * 프로파일이 이용중인 상태에서는 프로파일을 작성, 수정할 수 없습니다.
-        
-### 프로파일 상세
-
-![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.03/profile_detail_001.PNG)
- 
-* 프로파일의 상세 정보를 확인할 수 있습니다.
-    * 항목 이름
-    * 입력 범위: 항목의 입력 범위
-    * 입력 값: 실제 설정된 값
-    * 설명: 항목에 대한 설명
-* 프로파일 항목
-    * hash-max-ziplist-entries
-    * hash-max-ziplist-value	
-    * latency-monitor-threshold
-    * list-compress-depth	
-    * list-max-ziplist-size	
-    * maxmemory-policy	
-    * maxmemory-samples	
-    * set-max-intset-entries	
-    * slowlog-log-slower-than	
-    * slowlog-max-len		
-    * tcp-keepalive	
-    * timeout	
-    * zset-max-ziplist-entries
-    * zset-max-ziplist-value
