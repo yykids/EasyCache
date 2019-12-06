@@ -76,10 +76,32 @@ r.set('hoge', 'moge')
     redis-cli -v
     ```
 
-* 접속하고자 하는 복제 그룹를 선택하고 상세 정보에서 접속 정보 탭을 누룹니다. 
- ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.4.22/rep_de_005.PNG)
-* ①에서 **복사**버튼을 눌러 커맨드를 복사하여 인스턴스의 커맨드 창에 붙여넣기를 합니다.
-* ②에서 **보기**버튼을 누르면 패스워드가 보여지고 **복사**버튼이 활성화가 됩니다. 
-* ③에서 **복사**버튼을 누르면 패스워드를 복사합니다.
-* ①의 password를 대신에 ③에서 복사한 패스워드를 붙여넣기를 합니다.
-* Redis 서버에 접속합니다.
+* 접속하고자 하는 복제 그룹를 선택하고 상세 정보에서 **접속 정보** 탭을 누룹니다. 
+ ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
+* 사설/공인 커맨드중 선택하여 **복사**버튼을 눌러 커맨드를 복사하여 인스턴스의 커맨드 창에 붙여넣기를 합니다.
+* Redis 서버에 접속합니다. 
+* 패스워드에서 **보기**버튼을 누르면 패스워드가 보여지고 **복사**버튼이 활성화가 됩니다.
+* **복사**버튼을 누르면 패스워드를 복사합니다.
+* AUTH 커맨드를 이용하여 인증을 합니다.
+    * AUTH {복사한 패스워드}
+    
+## Restricted Redis commands
+아래의 명령어를 사용할 경우 서비스에 치명적인 영향을 줄 수 있는 가능성이 있습니다. 사용하지 말아주세요.
+
+* BGREWRITEAOF
+* BGSAVE
+* CONFIG
+* DEBUG
+* MIGRATE
+* SAVE
+* SHUTDOWN
+* SLAVEOF
+* REPLICAOF
+* SYNC
+
+#### key 또는 아이템이 대용량(수십만개 이상)일때 아래와 같은 명령어를 사용할 경우는 성능 저하및 시스템이 멈출 수 있습니다.
+
+* KEYS
+* FLUSHALL, FLUSHDB
+* Delete Collections
+* Get All Collections
