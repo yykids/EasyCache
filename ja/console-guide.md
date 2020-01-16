@@ -8,7 +8,7 @@
 ### レプリケーショングループ作成
 * Console > Database > EasyCacheの**レプリケーショングループ**タブで作成ボタンを押すと、レプリケーショングループ作成ウィンドウが表示されます。
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_create_001.PNG)
 
 * 設定ウィンドウに表示された必須項目を全て入力し、下部の作成ボタンを押してください。
     * レプリケーショングループ名：レプリケーショングループの名前を入力します。
@@ -41,7 +41,7 @@
 * 可用性を高めるために、RedisがサポートするReplicaノードを作成できます。
 * Replicaノードを作成するには、原本レプリケーショングループを選択した後、ノード追加ボタンを押します。
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_node_add_001.PNG)
 
 * Replicaノードが作成されるアベイラビリティーゾーンを選択できます。原本Masterノードとは別のアベイラビリティーゾーンを選択することを推奨します。
 * Masterノードの情報を確認、参照できます。
@@ -64,7 +64,7 @@
 ##### 制約事項
 * Replicaノード追加時、HA設定が失敗するとレプリケーショングループ> [基本情報]でHA再設定ボタンを押してHAを再設定できます。
 
-![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
+![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_ha_error_001.PNG)
 
 * 障害が発生してフェイルオーバーを行った場合は、障害が発生した既存Masterノードは停止します。障害が発生したノードを削除すると、高可用性機能を使用しない一般standaloneのMasterノードに変更されます。
 * またstandaloneになったMasterノードにReplicaノードを追加すると、高可用性機能を再度新たに指定して使用できます。
@@ -82,7 +82,7 @@
         * バックアップ開始時間：バックアップ開始時刻を指定します。30分単位で指定可能です。
         * バックアップ所要時間：バックアップ開始時刻から指定した時間までの任意の時点で開始します。1時間から最大3時間まで指定可能です。
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_modify_001.PNG)
 
 * 変更内容を確認し、**変更**ボタンを押します。
 * 一度設定したサービスポート、Redisバージョン、インスタンスタイプ、アベイラビリティゾーンは変更できません。
@@ -103,7 +103,7 @@
 * 定められたバックアップ保存期間が過ぎると、バックアップファイルは自動的に削除されます。
 * バックアップ対象のレプリケーショングループが削除されると、基本情報にレプリケーショングループの詳細内容は表示されません。
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/19.12.06/rep_manual_backup_001.PNG)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.01.16/rep_manual_backup_001.PNG)
 
 * 手動バックアップファイルを作成するために、対象レプリケーショングループを選択した後、**手動**バックアップボタンを押します。
     * バックアップ名：バックアップの名前を入力します。
@@ -128,7 +128,7 @@
 * 作成されたレプリケーショングループを選択し、**基本情報**タブを押します。
 * レプリケーショングループの詳細情報を確認できます。
 
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_detail_001.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_detail_info_001.PNG)
 
 * 確認可能な項目は下記のとおりです。
     * レプリケーショングループ名
@@ -148,7 +148,7 @@
 
 * 作成されたレプリケーショングループを選択し、接続情報タブを押します。
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_connection_info_001.PNG)
 
 * 暗号化されたパスワードは表示ボタンを押すと確認できます。
 * コピーボタンを押すと、パスワードをコピーできます。
@@ -166,7 +166,7 @@
 * 作成されたレプリケーショングループを選択し、ノード情報タブを押します。
 * レプリケーショングループのノードの詳細情報を確認できます。
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_node_info_001.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_node_info_001.PNG)
 
 * 確認可能な項目は下記のとおりです。
     * ノード名
@@ -181,7 +181,7 @@
 * EasyCacheはRedisの運営および使用に必要なモニタリング項目を周期的に収集し、チャートを表示します。
 * 特定レプリケーショングループのモニタリング項目を確認したい場合は、レプリケーショングループリストで特定レプリケーショングループを選択し、Monitoringタブを選択します。
 
-![monitoring_001.png](https://static.toastoven.net/prod_easycache/19.12.06/rep_monitoring_001.PNG)
+![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.01.16/rep_monitoring_info_001.PNG)
 
 * チャートの種類は平均値をサポートします。
 * 1時間、 24時間などのボタンを押すごとに、現在時刻を基準に計算して更新します。
@@ -214,11 +214,11 @@
     * set usec/get calls
 * モニタリング項目は、フィルタ条件で表示したい項目だけを選択できます。
 
-![filter_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_filter_001.PNG)
+![filter_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_monitoring_info_002.PNG)
       
 ## バックアップ
 
-![backup_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/backup_001.PNG)
+![backup_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/backup_001.PNG)
 
 * EasyCache > バックアップタブを選択します。
 * バックアップファイルを1つまたは複数選択して削除できます。
@@ -227,7 +227,7 @@
 * 検索ワード欄にバックアップ名またはレプリケーショングループ名の単語を入力して検索すると、検索結果が表示されます。
 * 更新を利用し、バックアップファイルリストを更新して情報を確認できます。
 
-![backup_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/backup_002.PNG)
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/backup_002.PNG)
 
 * 基本情報でバックアップファイルの詳細内容とレプリケーショングループの詳細内容を確認できます。
 * バックアップ
@@ -255,7 +255,7 @@
 * 復元時に原本ノードを変更しないで、同じ仕様のノードを新たに作成します。
 * 復元時に原本ノードを変更しないで、異なる仕様のノードを新たに作成します。
 
-![restore_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/restore_001.PNG)
+![restore_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/backup_003.PNG)
 
 * 復元内容
     * バックアップ名：復元するバックアップファイル名
@@ -290,7 +290,7 @@
 * EasyCacheは変更が可能なRedisの設定をプロファイル形式で登録して管理できます。
 * 変更が可能なRedisの設定をプロファイルに登録するために、**プロファイル設定**タブを選択した後、作成ボタンを押します。
 
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/profile_001.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/profile_001.PNG)
 
     * プロファイル名：プロファイル名を入力します。
     * 説明：プロファイルの説明を入力します。
@@ -315,7 +315,7 @@
         
 ### プロファイル詳細
 
-![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/profile_002.PNG)
+![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/profile_002.PNG)
  
 * プロファイルの詳細情報を確認できます。
     * 項目名
@@ -342,11 +342,11 @@
 
 * EasyCacheは、指定したリソースで発生する特定イベントに対する通知を受信グループに伝達できます。
 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_001.PNG)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/alram_001.PNG)
 
 ### アラームルール
 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_002.PNG)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/alram_002.PNG)
 
 * アラームを発生させる条件と対象、受信グループを指定して作成するアラームのトリガーです。
 * 通知を設定するには、通知タブを選択した後、アラームルール作成ボタンを押します。
@@ -366,7 +366,7 @@
 
 ### 受信グループ
 
-![not_re_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/alarm_003.PNG)
+![not_re_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/alram_003.PNG)
 
 * 通知を受け取る受信者のグループを作成して管理できます。
 * 受信グループを確認するには、アラームルール一覧、またはアラームルール作成、変更画面の受信グループ一覧ボタンを押します。
@@ -386,7 +386,7 @@
 * EasyCacheは、レプリケーショングループで発生した意味のあるイベントを自動的に記録します。
 * 検索ワード欄に単語を入力して検索すると、イベントのリソース名と説明を対象に検索結果を表示します。
 
-![eve_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/event_001.PNG)
+![eve_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/event_001.PNG)
 
 * 時間、日別に検索できます。
 * イベントデータの保存期間は1か月です。
