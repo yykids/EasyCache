@@ -77,7 +77,7 @@ r.set('hoge', 'moge')
     ```
 
 * 接続したい複製グループを選択し、詳細情報で接続情報タブを押します。
- ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
+ ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_connection_info_001.PNG)
 * プライベート/公認コマンドから選択し、コピーボタンでコマンドをコピーして、インスタンスのコマンドウィンドウに貼り付けます。
 * Redisサーバーに接続します。
 * パスワードで表示ボタンを押すとパスワードが表示され、コピーボタンが有効になります。
