@@ -1,17 +1,17 @@
-## Database > EasyCache > 개발자 가이드
+## Database > EasyCache > 開発者ガイド
 
-## Clients 접속
+## Clients 接続
 
-* 같은 VPC Subnet을 이용하는 인스턴스의 애플리케이션에서 접속할 수 있습니다.
-* Redis를 기반으로 만든 EasyCache는 다양한 개발 언어를 지원합니다.
+* 同じVPC Subnetを利用するインスタンスのアプリケーションから接続できます。
+* Redisを基盤に開発したEasyCacheは、多様な開発言語をサポートします。
 
 ### JAVA
 
-* Jedis 는 JAVA용 Redis Client입니다.
-* 설치한 필요한 Jar 파일입니다.
+* Jedisは、JAVA用のRedis Clientです。
+* インストールした必要なJarファイルです。
     * jedis-2.9.0.jar
     * commons-pool2-2.4.2.jar
-* 접속 코드
+* 接続コード
  ```
  public static void main( String[] args ) {
     Jedis jedis = new Jedis("localhost", 6379);
@@ -21,8 +21,8 @@
  
 ### PHP
 
-* Predis 는 PHP용 Redis Client입니다.
-* 접속 코드
+* Predisは、PHP用のRedis Clientです。
+* 接続コード
 ```
 $client = new Predis\Client('tcp://127.0.0.1:6379');
 $client->set('hogehoge','fugafuga');
@@ -39,13 +39,13 @@ $client->set('hogehoge','fugafuga');
 
 ### PYTHON
 
-* redis-py 는 PYTHON용 Redis Client입니다.
-* redis-py 는 아래와 같이 설치가 필요합니다.
+* redis-pyは、PYTHON用のRedis Clientです。
+* redis-pyは下記のようにインストールする必要があります。
 ```
 $ pip install redis
 ```
 
-* 접속 코드
+* 接続コード
 ```
 import redis
 
@@ -61,33 +61,33 @@ r = redis.StrictRedis(connection_pool=pool)
 r.set('hoge', 'moge')
 ```
 
-## 인스턴스에서 EasyCache for Redis 서버에 접속
+## インスタンスからEasyCache for Redisサーバーに接続
 
-* 같은 VPC Subnet내에서만 Redis 서버에 접속이 가능합니다. 
-* 같은 VPC Subnet에 있는 인스턴스를 생성합니다.
-* Redis Client를 이용하기 위해서는 각 OS별로 Redis를 설치해야 합니다.
+* 同じVPC Subnet内からのみRedisサーバーに接続可能です。
+* 同じVPC Subnetにあるインスタンスを作成します。
+* Redis Clientを利用するには、各OSにRedisをインストールする必要があります。
     ```
-    CentOS 경우
+    CentOS 場合
     yum -y install epel-release   
     yum -y install redis
     ```
-* 설치가 완료되면 제대로 설치가 되었는지 확인합니다.
+* インストールが完了したら、正常にインストールできたかを確認します。
     ```
     redis-cli -v
     ```
 
-* 접속하고자 하는 복제 그룹를 선택하고 상세 정보에서 **접속 정보** 탭을 누룹니다. 
- ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
-* 사설/공인 커맨드중 선택하여 **복사**버튼을 눌러 커맨드를 복사하여 인스턴스의 커맨드 창에 붙여넣기를 합니다.
-* Redis 서버에 접속합니다. 
-* 패스워드에서 **보기**버튼을 누르면 패스워드가 보여지고 **복사**버튼이 활성화가 됩니다.
-* **복사**버튼을 누르면 패스워드를 복사합니다.
-* AUTH 커맨드를 이용하여 인증을 합니다.
-    * AUTH {복사한 패스워드}
+* 接続したい複製グループを選択し、詳細情報で接続情報タブを押します。
+ ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_connection_info_001.PNG)
+* プライベート/公認コマンドから選択し、コピーボタンでコマンドをコピーして、インスタンスのコマンドウィンドウに貼り付けます。
+* Redisサーバーに接続します。
+* パスワードで表示ボタンを押すとパスワードが表示され、コピーボタンが有効になります。
+* **コピー**ボタンを押すと、パスワードをコピーします。
+* AUTHコマンドを利用して認証を行います。
+    * AUTH {コピーしたパスワード}
     
 ## Restricted Redis commands
 
-* 아래의 명령어를 사용할 경우 서비스에 치명적인 영향을 줄 수 있는 가능성이 있습니다. 사용하지 말아주세요.
+* 下記のコマンドを使用すると、サービスに致命的な影響を与える可能性があります。使用しないでださい。
 
   * BGREWRITEAOF
   * BGSAVE
@@ -100,10 +100,9 @@ r.set('hoge', 'moge')
   * REPLICAOF
   * SYNC
 
-* key 또는 아이템이 대용량(수십만개 이상)일때 아래와 같은 명령어를 사용할 경우는 성능 저하및 시스템이 멈출 수 있습니다.
+* keyまたはアイテムが多数(数十万個以上)ある時に下記のようなコマンドを使用すると、性能が低下したり、システムが止まる場合があります。
 
   * KEYS
   * FLUSHALL, FLUSHDB
   * Delete Collections
   * Get All Collections
-
