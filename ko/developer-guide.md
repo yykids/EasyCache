@@ -77,7 +77,7 @@ r.set('hoge', 'moge')
     ```
 
 * 접속하고자 하는 복제 그룹를 선택하고 상세 정보에서 **접속 정보** 탭을 누룹니다. 
- ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
+ ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/20.02.21/rep_connection_info_kr.png)
 * 사설/공인 커맨드중 선택하여 **복사**버튼을 눌러 커맨드를 복사하여 인스턴스의 커맨드 창에 붙여넣기를 합니다.
 * Redis 서버에 접속합니다. 
 * 패스워드에서 **보기**버튼을 누르면 패스워드가 보여지고 **복사**버튼이 활성화가 됩니다.
