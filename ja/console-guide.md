@@ -148,7 +148,7 @@
 
 * 作成されたレプリケーショングループを選択し、接続情報タブを押します。
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_connection_info_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.02.21/rep_connection_info_ja.png)
 
 * 暗号化されたパスワードは表示ボタンを押すと確認できます。
 * コピーボタンを押すと、パスワードをコピーできます。

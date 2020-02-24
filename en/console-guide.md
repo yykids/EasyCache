@@ -148,7 +148,7 @@
 
 * 생성된 복제 그룹을 선택하고 **접속 정보**탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.02.21/rep_connection_info_kr.png)
 
 * 암호화된 패스워드를 **보기** 버튼을 누르면 확인할 수 있습니다.
 * **복사**버튼을 누르면 패스워드를 복사할 수 있습니다.
