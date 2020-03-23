@@ -4,7 +4,7 @@
 
 #### 기능 개선
 
-- EasyCache 기본 config 값 수정
+- EasyCache 기본 config 값 변경(tcp-keepalive[0→300])
 
 ### 2020. 02. 25.
 
