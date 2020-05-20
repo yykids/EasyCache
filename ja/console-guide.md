@@ -311,11 +311,15 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
 * EasyCacheは変更が可能なRedisの設定をプロファイル形式で登録して管理できます。
 * 変更が可能なRedisの設定をプロファイルに登録するために、**プロファイル設定**タブを選択した後、作成ボタンを押します。
 
-![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.01.16/profile_001.PNG)
+![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_001_ja.png)
 
     * プロファイル名：プロファイル名を入力します。
     * 説明：プロファイルの説明を入力します。
-* 項目値を入力し、OKボタンを押します。
+    * バージョン：プロファイルのバージョンを選択します。
+* **詳細設定**を押して項目値を入力し、OKボタンを押します。
+
+![pro_003.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_003_ja.png)
+
 * 登録したプロファイル情報を修正します。
     * 利用中のノードにも反映されます。
 * 登録したプロファイルを削除します。
