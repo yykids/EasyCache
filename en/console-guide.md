@@ -89,8 +89,8 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ### 복제 그룹 수정 Modifying Replication Groups 
 
-1. 원본 복제 그룹을 선택하고 **수정** 버튼을 클릭합니다.
-2. **복제 그룹 수정** 대화 상자에서 이름과 백업 기간 등을 설정합니다.
+1. 원본 복제 그룹을 선택하고 **수정** 버튼을 클릭합니다.Select an original replication group, and click **Modify**. 
+2. **복제 그룹 수정** 대화 상자에서 이름과 백업 기간 등을 설정합니다. On the **Modify Replication Group** window, set name and backup period. 
 
 ![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_modify_002.PNG)
 
@@ -134,36 +134,36 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ### 도메인 관리 Domain Management 
 
-* 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다.
+* 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다. Access to a replication group is available only on instances sharing the same subnet, bu to enable external access, configure public domain setting from domain mnanagement.  
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.05.14/rep_public_domain_001.png)
 
 ##### 제약 사항 Constraints 
 
-- 수동 백업 생성 중에 중복으로 수동 백업을 할 수 없습니다. 진행 중인 수동 백업이 끝난 뒤 다시 시도해 주세요.
-- 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성되지 않고 지연될 수 있습니다.
+- 수동 백업 생성 중에 중복으로 수동 백업을 할 수 없습니다. 진행 중인 수동 백업이 끝난 뒤 다시 시도해 주세요. Redundant manual backup is unavailable. Try again after current manual backup is done.  
+- 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성되지 않고 지연될 수 있습니다. A manual backup execution during auto backup time may be delayed. 
 
 ### 복제 그룹 상세 Replication Group Details 
 
-복제 그룹의 기본, 접속, 노드, 모니터링 등의 상세 정보를 확인할 수 있습니다.
+복제 그룹의 기본, 접속, 노드, 모니터링 등의 상세 정보를 확인할 수 있습니다. Details of a replication group, such as basic, access, node, and monitoring, can be found. 
 
 #### 기본 정보 Basic Information 
 
-생성된 복제 그룹을 선택하고 **기본 정보** 탭을 누르면 복제 그룹의 상세 정보를 확인할 수 있습니다.
+Select a created replication group, press the **Basic Information** tab and check details of the replication group. 생성된 복제 그룹을 선택하고 **기본 정보** 탭을 누르면 복제 그룹의 상세 정보를 확인할 수 있습니다.
 
 ![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_detail_002.PNG)
 
-확인할 수 있는 항목은 다음과 같습니다.
+확인할 수 있는 항목은 다음과 같습니다. Following items can be found. 
 
-- 복제 그룹 이름, 설명, 타입, 버전, 서비스 포트, 인스턴스 타입
-- Max Memory(최대 메모리), 가용성 영역, 설정 프로필
-- VPC Subnet(서브넷), 생성일, 자동 백업 설정
+- 복제 그룹 이름, 설명, 타입, 버전, 서비스 포트, 인스턴스 타입 Replication group's name, description, type, version, service port, and instance type 
+- Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, Availability area, and profile setup 
+- VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, Creation time, auto backup configuration 
 
-Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같습니다.
+Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같습니다. Following items can be found when there is a replica node:
 
-- 마스터 다운 판정 시간
+- 마스터 다운 판정 시간 
 
-#### 복제 그룹 접속
+#### 복제 그룹 접속 Access to Replication Groups 
 
 생성된 복제 그룹을 선택하고 **접속 정보** 탭을 누릅니다.
 
@@ -181,7 +181,7 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
   - **생성** 버튼을 누르면 등록됩니다.
   - 접속 제어 정보에 등록되지 않은 IP는 접속할 수 없습니다.
 
-#### 노드 정보
+#### 노드 정보 Node Information 
 
 생성된 복제 그룹을 선택하고 **노드 정보** 탭을 누르면 복제 그룹 노드의 상세 정보를 확인하고 Replica 노드를 Master 노드로 승격할 수 있습니다.
 
@@ -426,24 +426,24 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
   - REPLICATION_GROUP: REPLICATION_GROUP에 관련된 이벤트입니다.
   - PROFILE: PROFILE에 관련된 이벤트입니다.
 
-##### 이벤트 항목
+##### 이벤트 항목 Event Item
 
-|타입 | 이벤트   | 이벤트 상세 |
+|Type | Event   | Event Details |
 |-----| ------ | ---------------- |
-| **복제 그룹** | 삭제   | 시작, 실패, 종료 |
+| **Replication Group복제 그룹** | 삭제   | 시작, 실패, 종료 |
 |             | 생성   | 시작, 실패, 종료 |
 |             |  수정   | 시작, 실패, 종료 |
 |             |  재시작 | 시작, 실패, 종료 |
 | **공인 도메인** | 설정 | 시작, 실패, 종료 |
 |             | 해제 | 시작, 실패, 종료 |
-| **캐시 인스턴스** | 연결 | 성공, 실패 |
-| **노드** | 삭제 | 시작, 실패, 종료 |
+| **Cache Instance 캐시 인스턴스** | 연결 | 성공, 실패 |
+| **Node노드** | 삭제 | 시작, 실패, 종료 |
 |         | 추가 | 시작, 실패, 종료 |
 |         | 마스터 승격 | 시작, 실패, 종료 |
 |         | 상태 | 비활성화됨, 활성화됨 |
-| **프로필** | 수정 | 시작, 실패, 종료 |
-| **자동 HA** | 삭제 | 시작, 종료 |
+| **Profile 프로필** | 수정 | 시작, 실패, 종료 |
+| **Auto자동 HA** | 삭제 | 시작, 종료 |
 |            | 설정 | 시작, 실패, 종료 |
-| **장애 조치(failover)** |  | 성공 |
-| **백업** | 수동 백업 | 시작, 실패, 종료 |
+| **Failover 장애 조치(failover)** |  | 성공 |
+| **Backup 백업** | 수동 백업 | 시작, 실패, 종료 |
 |        | 자동 백업 | 시작, 실패, 종료 |
