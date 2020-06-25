@@ -35,59 +35,59 @@ To use EasyCache, you must create replication groups in the first place. 를 사
       - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
 3. Click **Create 생성** 버튼을 클릭합니다.
 
-4. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
-   복제 그룹이 생성되면서 Master 노드가 생성됩니다. 생성될 때까지 몇 분 정도 걸립니다.
+4. Check what has been entered and click **Create**. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
+   Along with a replication group, the master node is created. It takes a few minutes to create.  복제 그룹이 생성되면서 Master 노드가 생성됩니다. 생성될 때까지 몇 분 정도 걸립니다.
    
-##### 제약 사항
-- 서비스에 치명적인 영향을 줄 수 있는 명령어에 대해서 사용이 제한됩니다.
-- 해당 명령어는 개발자 가이드를 참고 하세요. 
+##### 제약 사항 Constraints 
+- 서비스에 치명적인 영향을 줄 수 있는 명령어에 대해서 사용이 제한됩니다. Service is restricted for such commands that may severely impact service.  
+- 해당 명령어는 개발자 가이드를 참고 하세요. See developer's guide to find out the commands. 
 
-### 복제(노드 추가)
+### 복제(노드 추가) Replication (Adding Nodes) 
 
-Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습니다.
+Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습니다. By creating a replica node supported by Redis, availability can be raised. 
 
-1. Replica 노드를 만들려면 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 클릭합니다.
+1. Replica 노드를 만들려면 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 클릭합니다. To create a replica node, select an original replication group and click **Add Nodes**. 
 
 ![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_node_add_002.PNG)
 
-2. Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
+2. Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다. To see if the master node has gone down, wait time can be set for health check response. Default is 3000ms. 
 
-3. Replica 노드가 생성될 가용 존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용 존을 선택하면 가용성이 좋습니다.
+3. Select an available zone to create a replica node. Selecting a different available zone from the original master node makes it more available.  Replica 노드가 생성될 가용 존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용 존을 선택하면 가용성이 좋습니다.
 
-4. Master 노드의 정보를 확인할 수 있습니다.
+4. Master 노드의 정보를 확인할 수 있습니다. Find out information of the master node. 
 
 5. Click **Add**, and a replica node is created. 버튼을 누르면 Replica 노드가 생성됩니다.
 6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > 노드 정보**에서 확인할 수 있습니다.
    생성 중 자동으로 복제 관계가 설정됩니다.
 
-Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다.
-원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어날 수 있습니다.
+Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The replica node has the same server specifications with the original master node. 
+원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어날 수 있습니다. It may take more time to create a replica node in proportion to the size of the original master node.
 
 ##### 제약 사항 Constraints 
 
-- 원본 Master 노드로 1개의 Replica 노드만 만들 수 있습니다. 
-- Replica 노드의 Replica 노드는 만들 수 없습니다.
+- 원본 Master 노드로 1개의 Replica 노드만 만들 수 있습니다. Original master node can create only one replica node.  
+- Replica 노드의 Replica 노드는 만들 수 없습니다. A replica node cannot create its own replica node. 
 
 #### High Availability 고가용성(HA)
 
-Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다.
+Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다. By adding a replica node to the master node of Standalone, high availability is automatically configured. 
 
-- Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
-- 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
-- Master, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
+- With an auto failover when an error occurs on the master node, downtime can be reduced to the minimum. Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
+- Failover refers to detecting the master node in which error occurred so that a replica node can be promoted to the master node. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
+- You may find events on failure and status of the master or replica nodes. aster, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
 
 ##### 제약 사항 Constraints 
 
-- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다.
+- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다. If it fails to configure high availability for adding replica nodes, go to **Replication Groups > Basic Information** and click **Reconfigure HA** to re-configure high availability.  
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
-- 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
+- With a failover, the existing master node in which error occurred is suspended. 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
 - Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다.
 - 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다.
 - 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다.
 
-### 복제 그룹 수정
+### 복제 그룹 수정 Modifying Replication Groups 
 
 1. 원본 복제 그룹을 선택하고 **수정** 버튼을 클릭합니다.
 2. **복제 그룹 수정** 대화 상자에서 이름과 백업 기간 등을 설정합니다.
@@ -106,7 +106,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 3. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
     한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
-### 자동 백업
+### 자동 백업 Auto Backups 
 
 - 매일 1회 지정된 시간에 자동으로 메모리 데이터(RDB 파일)를 백업합니다.
 - 생성된 자동 백업은 **백업 **탭에서 관리할 수 있습니다.
@@ -114,7 +114,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 - 지정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
 - 자동 백업은 백업 시작 시각부터 백업 소요 시간 사이 중 임의의 시점에 시작됩니다.
 
-### 수동 백업 생성
+### 수동 백업 생성 Creating Manual Backups 
 
 복제 그룹의 백업을 원하는 시점에 바로 생성할 수 있습니다. 백업 대상이 된 복제 그룹을 삭제해도 수동 백업 파일은 삭제되지 않습니다.
 
@@ -128,25 +128,26 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
     데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다.
     ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.04.28/rep_manual_backup_001.PNG)
 
-- 백업 이름: 백업 이름을 입력합니다.
-- 설명: 백업 설명을 입력합니다.
-- 백업 보관 기간: 삭제하지 않거나 1일부터 최대 30일까지 보관할 수 있습니다.
+- Backup Name 백업 이름: Enter name of a backup.백업 이름을 입력합니다.
+- Description 설명: Enter description of the backup. 백업 설명을 입력합니다.
+- Backup Retention Period 백업 보관 기간: 삭제하지 않거나 1일부터 최대 30일까지 보관할 수 있습니다.You may not delete, or retain backup from 1 day, up to 30 days. 
 
-### 도메인 관리
+### 도메인 관리 Domain Management 
 
 * 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다.
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.05.14/rep_public_domain_001.png)
 
-##### 제약 사항
+##### 제약 사항 Constraints 
 
 - 수동 백업 생성 중에 중복으로 수동 백업을 할 수 없습니다. 진행 중인 수동 백업이 끝난 뒤 다시 시도해 주세요.
 - 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성되지 않고 지연될 수 있습니다.
 
-### 복제 그룹 상세
+### 복제 그룹 상세 Replication Group Details 
 
 복제 그룹의 기본, 접속, 노드, 모니터링 등의 상세 정보를 확인할 수 있습니다.
-#### 기본 정보
+
+#### 기본 정보 Basic Information 
 
 생성된 복제 그룹을 선택하고 **기본 정보** 탭을 누르면 복제 그룹의 상세 정보를 확인할 수 있습니다.
 
@@ -186,32 +187,32 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
 
 ![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_node_info_002.PNG)
 
-- Replica 노드를 선택하고 마스터 승격을 누르면, 선택한 Replica 노드를 Master 노드로 승격할 수 있습니다. 이 때 Master 노드는 Replica 노드로 변경됩니다.
-- 확인할 수 있는 항목은 다음과 같습니다.
-  - 노드 이름, 종류, IP, 가용성 영역, 생성일, 상태
+- Select a replica node and press promotion to master, and the selected replica node can be promoted to the master node. Then, the existing master node is changed to a replica node. Replica 노드를 선택하고 마스터 승격을 누르면, 선택한 Replica 노드를 Master 노드로 승격할 수 있습니다. 이 때 Master 노드는 Replica 노드로 변경됩니다.
+- 확인할 수 있는 항목은 다음과 같습니다.Following itesm can be found:
+  - 노드 이름, 종류, IP, 가용성 영역, 생성일, 상태 Node name, Type, IP, Availability area, Date of creation, and Status 
 
-## 모니터링
+## 모니터링 Monitoring 
 
-EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 마다 수집하고 있으며, 수집한 데이터를 차트로 보여줍니다.  
+EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 마다 수집하고 있으며, 수집한 데이터를 차트로 보여줍니다.  EasyCache collects monitoring items that are required to run and use Redis at every minute, and shows such data on a chart. 
 
 ![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
 
-- 1시간, 24시간 등의 버튼을 누를 때마다 현재 시각을 기준으로 계산하여 갱신합니다.
-  - **1시간** 버튼은 1분마다 수집한 데이터를 차트에 표시합니다.
-  - **12시간** 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-  - **24시간** 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-  - **1개월** 버튼은 수집한 데이터의 6시간의 평균값을 차트에 표시합니다.
-  - **지정** 버튼을 클릭해 직접 검색 기간을 지정할 수 있습니다.
-- 캘린터를 클릭하여 검색 시점을 지정할 수 있습니다.
-  - 캘린더에서 날짜나 시간을 선택하여도 선택한 검색 기간은 유지됩니다.
-- 현재 시간 버튼을 클릭하면 현재시간을 기준으로 선택한 검색 기간을 재검색 합니다.
-- 현재 시간 버튼의 오른쪽에 있는 화살표 버튼을 이용하여 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
-- 복제 그룹 드롭다운에서 차트를 표시할 복제 그룹을 선택할 수 있습니다.
-- 자동 갱신 을 체크하면 60초 마다 차트 데이터를 갱신합니다.
-- 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다.
-- 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다.
-  - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.
-- 모니터링 데이터 보존 기간은 1개월입니다.
+- At every press of the 1-hour or 24-hour button, it is updated as of the current time. 1시간, 24시간 등의 버튼을 누를 때마다 현재 시각을 기준으로 계산하여 갱신합니다.
+  - The **1 Hour시간** button shows data collected at every minute on a chart. 버튼은 1분마다 수집한 데이터를 차트에 표시합니다.
+  - The **12 Hour시간** button shows 10-minute average value of collected data on a chart.  버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
+  - The **24 Hour 시간** button shows 10-minute average value of collected data on a chart. 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
+  - The **1 Month개월** button shows 6-hour average value of collected data on a chart. 버튼은 수집한 데이터의 6시간의 평균값을 차트에 표시합니다.
+  - Click **Specify 지정** to specify search period. 버튼을 클릭해 직접 검색 기간을 지정할 수 있습니다.
+- Search period can be specified with clicks on the calendar. 캘린터를 클릭하여 검색 시점을 지정할 수 있습니다.
+  - Although a day or time is selected on the calendar, selected search period shall sustsin. 캘린더에서 날짜나 시간을 선택하여도 선택한 검색 기간은 유지됩니다.
+- A click on the current time results in the re-search of the period selected as of the current time. 현재 시간 버튼을 클릭하면 현재시간을 기준으로 선택한 검색 기간을 재검색 합니다.
+- With an arrow on the right of the current time button, you may search for time before or after, as much as the search period.  현재 시간 버튼의 오른쪽에 있는 화살표 버튼을 이용하여 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
+- 복제 그룹 드롭다운에서 차트를 표시할 복제 그룹을 선택할 수 있습니다. A replication group can be selected to show charts from the replication group dropdown. 
+- 자동 갱신 을 체크하면 60초 마다 차트 데이터를 갱신합니다. With Auto Update enabled, chart data is updated at every 60 seconds. 
+- 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다. By clicking on a chart, it is expanded for display.  
+- 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다. On the expanded chart, statistics and collection period may be changed for display. 
+  - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.Statistical method is applied to show accumulated data, and if the collection time is 1 minute, 
+- 모니터링 데이터 보존 기간은 1개월입니다.Monitoring data is retained for 1 month. 
 
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
 - 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
@@ -238,7 +239,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
   - set usec/get calls
 
 
-## 백업
+## Backups 백업
 
 **백업** 탭에서 백업과 백업 삭제 등을 할 수 있습니다. 백업 중에는 성능이 저하될 수 있으므로 서비스 부하가 적은 시간에 백업하는 것이 좋습니다.
 
@@ -324,9 +325,9 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 
 
-### 프로필 상세
+### 프로필 상세 Profile Details 
 
-프로필 상세 정보를 확인할 수 있습니다.
+프로필 상세 정보를 확인할 수 있습니다. Profile details can be found. 
 
 ![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/profile_002.PNG)
 
