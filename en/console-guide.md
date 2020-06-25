@@ -1,39 +1,39 @@
-## Database > EasyCache > 콘솔 사용 가이드
+## Database > EasyCache > 콘솔 사용 가이드 Console User Guide
 
-## 시작하기
+## 시작하기 Getting Started 
 
-EasyCache를 사용하려면 가장 먼저 복제 그룹을 생성해야 합니다.
+To use EasyCache, you must create replication groups in the first place. 를 사용하려면 가장 먼저 복제 그룹을 생성해야 합니다.
 
-## 복제 그룹
+## 복제 그룹 Replication Groups
 
-### 복제 그룹 생성
+### 복제 그룹 생성 Creating Replication Groups 
 
-1. **Console > Database > EasyCache**의 **복제 그룹** 탭에서 **생성** 버튼을 누르면 **복제 그룹 생성** 창이 나타납니다.
+1. On **Console > Database > EasyCache** and의 **Replication Groups복제 그룹**, click 탭에서 **Create 생성**, and 버튼을 누르면 **Create Replication Groups복제 그룹 생성** popup shows. 창이 나타납니다.
 
 ![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_create_001.PNG)
 
-2. 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 **생성** 버튼을 클릭합니다.
+2. Enter all requirements on the setting window and click **Create** at the bottom. 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 **생성** 버튼을 클릭합니다.
 
-    - 복제 그룹 이름: 복제 그룹 이름을 입력합니다.
-    - 설명: 복제 그룹의 설명을 입력합니다.
-    - 서비스 포트: Redis의 포트 번호를 입력합니다.
-      - 10000~12000 사이로 설정할 수 있습니다.
-    - 버전: 생성할 Redis 버전을 선택합니다.
-      - 2020년 6월 현재 5.0.8만 지원합니다.
-    - 인스턴스 타입: 복제 그룹의 사양을 선택합니다.
-    - Max Memory: 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다.
-      - Redis 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다.
-      - 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
-    - 가용성 영역: 복제 그룹이 생성될 영역을 선택합니다.
-    - 설정 프로필: Redis의 설정 파일을 선택합니다.
-      - 기본 프로필을 제공합니다.
-      - 설정 프로필을 추가해 선택할 수 있습니다.
+    - Name of Replication Group복제 그룹 이름: Enter name of a replication group. 복제 그룹 이름을 입력합니다.
+    - Description설명: Enter description of the group. 복제 그룹의 설명을 입력합니다.
+    - Service Port 서비스 포트: Enter port number of Redis의 포트 번호를 입력합니다.
+      - Setting is available between 10000 and 12000 사이로 설정할 수 있습니다.
+    - Version 버전: Select a Redis version to create. 생성할 Redis 버전을 선택합니다.
+      - 2020년 6월 현재 5.0.8만 지원합니다. As of June 2020, only 5.0.8 is supported. 
+    - Instace Type 인스턴스 타입: Select specifications for the replication group. 복제 그룹의 사양을 선택합니다.
+    - Max Memory: Adjust the max memory to prevent memory shortage from synchronization or backup. 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다.
+      - You may change the volume of max memory for Redis server. 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다.
+      - If required, management volume can be secured. 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
+    - Availability Area 가용성 영역: Select an area in which replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
+    - Profile Setup설정 프로필: Select a setup file for Redis의 설정 파일을 선택합니다.
+      - Provides basic profile. 기본 프로필을 제공합니다.
+      - More profile setup can be added for selection. 설정 프로필을 추가해 선택할 수 있습니다.
     - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다.
-    - 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
-      - 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
-      - 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다.
-      - 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
-3. **생성** 버튼을 클릭합니다.
+    - Auto Backup Setting자동 백업 설정: Select to enable auto backup. 자동 백업 사용 여부를 선택합니다.
+      - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
+      - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다.
+      - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
+3. Click **Create 생성** 버튼을 클릭합니다.
 
 4. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
    복제 그룹이 생성되면서 Master 노드가 생성됩니다. 생성될 때까지 몇 분 정도 걸립니다.
@@ -56,19 +56,19 @@ Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습
 
 4. Master 노드의 정보를 확인할 수 있습니다.
 
-5. **추가** 버튼을 누르면 Replica 노드가 생성됩니다.
-6. 생성된 노드의 정보는 **복제 그룹 > 노드 정보**에서 확인할 수 있습니다.
+5. Click **Add**, and a replica node is created. 버튼을 누르면 Replica 노드가 생성됩니다.
+6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > 노드 정보**에서 확인할 수 있습니다.
    생성 중 자동으로 복제 관계가 설정됩니다.
 
 Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다.
 원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어날 수 있습니다.
 
-##### 제약 사항
+##### 제약 사항 Constraints 
 
-- 원본 Master 노드로 1개의 Replica 노드만 만들 수 있습니다.
+- 원본 Master 노드로 1개의 Replica 노드만 만들 수 있습니다. 
 - Replica 노드의 Replica 노드는 만들 수 없습니다.
 
-#### 고가용성(HA)
+#### High Availability 고가용성(HA)
 
 Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다.
 
@@ -76,7 +76,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 - 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
 - Master, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
 
-##### 제약 사항
+##### 제약 사항 Constraints 
 
 - Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다.
 
