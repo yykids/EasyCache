@@ -30,9 +30,9 @@ To use EasyCache, you must create replication groups in the first place. 를 사
       - More profile setup can be added for selection. 설정 프로필을 추가해 선택할 수 있습니다.
     - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다.
     - Auto Backup Setting자동 백업 설정: Select to enable auto backup. 자동 백업 사용 여부를 선택합니다.
-      - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
-      - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다.
-      - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
+      - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다. Available from 1 day up to 30 days
+      - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다. Specify the start time of backup, by 30-minute interval.
+      - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다. Backup to start at a random point between backup start time and specified time. Available from 1 hour up to 3 hours. 
 3. Click **Create 생성** 버튼을 클릭합니다.
 
 4. Check what has been entered and click **Create**. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
@@ -73,12 +73,12 @@ Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The 
 Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다. By adding a replica node to the master node of Standalone, high availability is automatically configured. 
 
 - With an auto failover when an error occurs on the master node, downtime can be reduced to the minimum. Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
-- Failover refers to detecting the master node in which error occurred so that a replica node can be promoted to the master node. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
-- You may find events on failure and status of the master or replica nodes. aster, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
+- Failover refers to detecting a master node in which error occurred and promoting a replica node to the master node. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
+- You may find events on failure and status of the master or replica node. aster, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
 
 ##### 제약 사항 Constraints 
 
-- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다. If it fails to configure high availability for adding replica nodes, go to **Replication Groups > Basic Information** and click **Reconfigure HA** to re-configure high availability.  
+- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다. If it fails in high availability configuration while adding replica nodes, go to **Replication Groups > Basic Information** and click **Reconfigure HA** to re-configure high availability.  
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
