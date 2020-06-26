@@ -25,9 +25,9 @@ To use EasyCache, you must create replication groups in the first place. 를 사
       - You may change the volume of max memory for Redis server. 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다.
       - If required, management volume can be secured. 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
     - Availability Area 가용성 영역: Select an area in which replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
-    - Profile Setup설정 프로필: Select a setup file for Redis의 설정 파일을 선택합니다.
+    - Configuration File설정 프로필: Select a configuration file for Redis의 설정 파일을 선택합니다.
       - Provides basic profile. 기본 프로필을 제공합니다.
-      - More profile setup can be added for selection. 설정 프로필을 추가해 선택할 수 있습니다.
+      - More configuration file can be added for selection. 설정 프로필을 추가해 선택할 수 있습니다.
     - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다.
     - Auto Backup Setting자동 백업 설정: Select to enable auto backup. 자동 백업 사용 여부를 선택합니다.
       - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다. Available from 1 day up to 30 days
@@ -217,19 +217,19 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
 - 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
 - 모니터링 항목은 다음과 같습니다.
-  - CPU 이용률
-  - 시스템 메모리
-  - 연결된 클라이언트
-  - 블록된 클라이언트
-  - Redis 메모리 사용량
-  - Redis 메모리 사용량(rss)
+  - CPU 이용률 CPU Usage Ratio 
+  - 시스템 메모리 System Memory
+  - 연결된 클라이언트 Connected Client
+  - 블록된 클라이언트 Blocked Client
+  - Redis 메모리 사용량 Redis Memory Usage Volum
+  - Redis 메모리 사용량(rss) 
   - 메모리 파편화 비율
   - 초당 처리한 명령 수
-  - 입력 바이트
+  - 입력 바이트 
   - 출력 바이트
   - 만료된 키 수(expired)
   - 삭제된 키 수(evicted)
-  - 조회 성공 수
+  - 조회 성공 수 
   - 조회 실패 수
   - 조회 성공률
   - 키 개수
@@ -241,7 +241,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ## Backups 백업
 
-**백업** 탭에서 백업과 백업 삭제 등을 할 수 있습니다. 백업 중에는 성능이 저하될 수 있으므로 서비스 부하가 적은 시간에 백업하는 것이 좋습니다.
+**백업** 탭에서 백업과 백업 삭제 등을 할 수 있습니다. 백업 중에는 성능이 저하될 수 있으므로 서비스 부하가 적은 시간에 백업하는 것이 좋습니다. On the **Backup** tab, you may back up or delete backup. Since performance may be degraded during a backup, it is recommended to execute backup while service load is low. 
 
 ![backup_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_001.PNG)
 
