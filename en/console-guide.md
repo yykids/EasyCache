@@ -257,7 +257,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 	- 복제 그룹 상세
   복제 그룹 이름, 인스턴스 타입, 버전, Max Memory(최대 메모리), 서비스 포트, VPC Subnet
 
-### 복원
+### 복원Restoration
 
 보관된 백업 파일을 이용해 메모리 데이터를 복원할 수 있습니다. 
 
@@ -289,9 +289,9 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
     - 백업 시작 시간: 백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
     - 백업 지연 시간: 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 3시간까지 지정할 수 있습니다.
 
-## 설정 프로필
+## 설정 프로필 Configuration Profile 
 
-### 설정 프로필 생성
+### 설정 프로필 생성 Creating Configuration Profile
 
 변경이 가능한 Redis의 설정을 프로필 형태로 등록해 관리할 수 있습니다.
 
@@ -362,13 +362,13 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
   - client-query-buffer-limit (redis 5.0 추가)
   - proto-max-bulk-len (redis 5.0 추가)
 
-## 알람
+## 알람 Alarm
 
 EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 알림을 수신 그룹에 전달할 수 있습니다.
 
 ![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_001.PNG)
 
-### 알람 규칙
+### 알람 규칙 Alarm Rules 
 
 알람 발생 조건과 대상, 수신 그룹을 지정합니다.
 1. 원하는 알림을 설정하려면 **알림** 탭에서 **알람 규칙 생성** 버튼을 클릭합니다.
@@ -390,7 +390,7 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 
 작성한 알람 규칙은 알람 기능을 사용 안 함으로 변경해 일시적으로 끌 수 있습니다.
 
-### 수신 그룹
+### 수신 그룹 Recipient Group 
 
 알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다.
 
@@ -402,36 +402,36 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
   - TOAST 회원 정보에 등록한 메일 주소와 전화번호로 메일 또는 SMS를 보낼 수 있습니다.
 - 알람 규칙에서 사용 중인 수신 그룹을 삭제하면 다른 수신 그룹이 없는 알람 규칙의 경우 더이상 알람을 보내지 않게 되므로 주의해야 합니다.
 
-##### 제약 사항
+##### 제약 사항 Constraints 
 
 - 알람 규칙의 대상 복제 그룹에 한 개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제한 경우, 알람은 유일한 대상 복제 그룹이 없어져 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
 - 알람 규칙의 수신 그룹에 한 개의 수신 그룹만 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제한 경우, 알람은 유일한 수신 그룹이 없어져 이후부터는 알람을 보낼 수 없게 됩니다.
 - 복제 그룹 생성의 알람은 대상 복제 그룹이 있어도 모든 복제 그룹이 대상이 되어 알람을 보냅니다.
 - 프로젝트에 새로운 사용자를 추가할 경우 수신 그룹의 프로젝트 유저 목록에 동기화되기까지 1시간 정도의 대기 시간이 발생할 수 있습니다.
 
-## 이벤트
+## 이벤트 Events
 
-1. **이벤트** 탭을 선택합니다.
+1. Select **Event이벤트** 탭을 선택합니다.
 
-2. EasyCache는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
+2. EasyCache automatically retains significant events occurred at a replication group. 는 복제 그룹에서 발생한 의미 있는 이벤트를 자동으로 남깁니다.
 
-3. 검색어란에 검색할 단어를 입력하고 **검색** 버튼을 클릭하면 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과가 나타납니다.
+3. Enter a word to search on the search window and click **Search**, and search result shows on the resource name and description of an event.  검색어란에 검색할 단어를 입력하고 **검색** 버튼을 클릭하면 이벤트의 리소스 이름과 설명을 대상으로 검색한 결과가 나타납니다.
 
 ![eve_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/event_001.PNG)
 
-- 시간, 날짜별로 검색할 수 있습니다.
-- 이벤트 데이터 보존 기간은 1개월입니다.
-- 이벤트 타입은 어떤 리소스에서 발생한 이벤트인지를 뜻합니다.
-  - ALL: NODE와 REPLICATION_GROUP 관련된 이벤트입니다.
-  - NODE: NODE에 관련된 이벤트입니다.
-  - REPLICATION_GROUP: REPLICATION_GROUP에 관련된 이벤트입니다.
-  - PROFILE: PROFILE에 관련된 이벤트입니다.
+- 시간, 날짜별로 검색할 수 있습니다. Search by time and date is available. 
+- 이벤트 데이터 보존 기간은 1개월입니다. Event data can be retained for a month. 
+- 이벤트 타입은 어떤 리소스에서 발생한 이벤트인지를 뜻합니다. Event type refers to a resource type from which an event has occurred. 
+  - ALL: NODE와 REPLICATION_GROUP 관련된 이벤트입니다. Events that are related to NODE and REPLICATION_GROUP.  
+  - NODE: NODE에 관련된 이벤트입니다. Events that are related to NODE.
+  - REPLICATION_GROUP: REPLICATION_GROUP에 관련된 이벤트입니다. Events related to REPLICATION_GROUP.
+  - PROFILE: PROFILE에 관련된 이벤트입니다. Events related to PROFILE. 
 
 ##### 이벤트 항목 Event Item
 
 |Type | Event   | Event Details |
 |-----| ------ | ---------------- |
-| **Replication Group복제 그룹** | 삭제   | 시작, 실패, 종료 |
+| **Replication Group복제 그룹** | Delete 삭제   | 시작, 실패, 종료 |
 |             | 생성   | 시작, 실패, 종료 |
 |             |  수정   | 시작, 실패, 종료 |
 |             |  재시작 | 시작, 실패, 종료 |
