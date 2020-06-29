@@ -57,10 +57,10 @@ Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습
 4. Master 노드의 정보를 확인할 수 있습니다. Find out information of the master node. 
 
 5. Click **Add**, and a replica node is created. 버튼을 누르면 Replica 노드가 생성됩니다.
-6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > 노드 정보**에서 확인할 수 있습니다.
-   생성 중 자동으로 복제 관계가 설정됩니다.
+6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > Node Information노드 정보**에서 확인할 수 있습니다.
+   생성 중 자동으로 복제 관계가 설정됩니다. Replication relation is automatically set while it is created. 
 
-Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The replica node has the same server specifications with the original master node. 
+Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The replica node has the same server specifications as the original master node. 
 원본 Master 노드의 크기에 비례하여 Replica 노드 생성 시간이 늘어날 수 있습니다. It may take more time to create a replica node in proportion to the size of the original master node.
 
 ##### 제약 사항 Constraints 
@@ -82,10 +82,10 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
-- With a failover, the existing master node in which error occurred is suspended. 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
-- Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다.
-- 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다.
-- 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다.
+- With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high-availability is not enabled. 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
+- Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다. By adding a replica node to a standalone master node, high availability can be newly specified. 
+- 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다. The newly changed master node inherits domain applied to access the existing master node. 
+- 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다. The existing node with failover becomes 'Disabled', under which, high availability is not provided to a new master node only. 
 
 ### 복제 그룹 수정 Modifying Replication Groups 
 
@@ -94,38 +94,39 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_modify_002.PNG)
 
-- 복제 그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
-- 설명: 복제 그룹 설명을 변경할 수 있습니다.
-- 설정 프로필: Redis 설정을 변경할 수 있습니다.
-- Max Memory: 사용할 최대 메모리의 용량을 변경할 수 있습니다.
+- Name of Replication Group복제 그룹 이름: Name can be changed. 복제 그룹 이름을 변경할 수 있습니다.
+- Description설명: Description of a replication group can be changed. 복제 그룹 설명을 변경할 수 있습니다.
+- Configuration Profile설정 프로필: Redis setting can be changed. 설정을 변경할 수 있습니다.
+- Max Memory: Volume of the maximum memory for usage can be changed. 사용할 최대 메모리의 용량을 변경할 수 있습니다.
 - 마스터 다운 판정 시간 : Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
-- 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
-	- 백업 보관 기간 : 1일부터 최대 30일까지 보관할 수 있습니다.
-	- 백업 시작 시간 : 백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
-	- 백업 소요 시간 : 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
+- Auto Backup Configuration 자동 백업 설정: Select whether to use auto backup 자동 백업 사용 여부를 선택합니다.
+	- Backup Retention Period 백업 보관 기간 : From 1, up to 30 days. 1일부터 최대 30일까지 보관할 수 있습니다.
+	- Backup Start Time백업 시작 시간 : Specify start time of a backup, by 30 minute interval.  백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
+	- Backup Time백업 소요 시간 : Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
 
-3. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
-    한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
+3. Check changes and click **Change**. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
+   Service port, Redis version, Instance type, and Availability area cannot be changed, once they are configured.  한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
+    
 ### 자동 백업 Auto Backups 
 
-- 매일 1회 지정된 시간에 자동으로 메모리 데이터(RDB 파일)를 백업합니다.
-- 생성된 자동 백업은 **백업 **탭에서 관리할 수 있습니다.
-- 백업 대상이 된 복제 그룹이 삭제되면 백업 파일도 삭제됩니다.
-- 지정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
-- 자동 백업은 백업 시작 시각부터 백업 소요 시간 사이 중 임의의 시점에 시작됩니다.
+- Memory data (RDB file) is automatically backed up at a specified time once every day. 매일 1회 지정된 시간에 자동으로 메모리 데이터(RDB 파일)를 백업합니다.
+- To manage auto backups that are created, go to 생성된 자동 백업은 **Backup백업 **탭에서 관리할 수 있습니다.
+- When a replication group bound for backup is deleted, backup files are deleted altogether. 백업 대상이 된 복제 그룹이 삭제되면 백업 파일도 삭제됩니다.
+- After a backup retention period, backup files will be automatically deleted. 지정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
+- Auto backup is to start randomly between start time and backup time. 자동 백업은 백업 시작 시각부터 백업 소요 시간 사이 중 임의의 시점에 시작됩니다.
 
 ### 수동 백업 생성 Creating Manual Backups 
 
-복제 그룹의 백업을 원하는 시점에 바로 생성할 수 있습니다. 백업 대상이 된 복제 그룹을 삭제해도 수동 백업 파일은 삭제되지 않습니다.
+복제 그룹의 백업을 원하는 시점에 바로 생성할 수 있습니다. 백업 대상이 된 복제 그룹을 삭제해도 수동 백업 파일은 삭제되지 않습니다. You may create a backup for replication group at a time of choice. Even if a replication group bound for backup is deleted, manual backup files cannot be deleted. 
 
-- 생성된 수동 백업은 **백업**탭에서 관리할 수 있습니다.
-- 백업이 실행되는 동안 성능이 저하될 수 있습니다.
-- 설정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
-- 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다.
+- 생성된 수동 백업은 **백업**탭에서 관리할 수 있습니다. To manage manual backups that are created, go to **Backup**. 
+- 백업이 실행되는 동안 성능이 저하될 수 있습니다. Performance may be degraded while backup is executed. 
+- 설정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다. After a backup retention period, backup files will be automatically deleted. 
+- 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다. If a replication group bound for backup is deleted, details of the group are not displayed on basic information. 
 
-1. 수동 백업 파일을 만들려면  대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 클릭합니다.
-2. **수동 백업** 대화 상자에서 정보를 입력하고 **백업** 버튼을 클릭합니다. 
-    데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다.
+1. 수동 백업 파일을 만들려면  대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 클릭합니다. To create manual backup files, select a replication group and click **Manual Backup**. 
+2. **수동 백업** 대화 상자에서 정보를 입력하고 **백업** 버튼을 클릭합니다. Enter information for **Manual Bakup** and click **Backup**.  
+    데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다. BAckup 
     ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.04.28/rep_manual_backup_001.PNG)
 
 - Backup Name 백업 이름: Enter name of a backup.백업 이름을 입력합니다.
@@ -156,7 +157,7 @@ Select a created replication group, press the **Basic Information** tab and chec
 확인할 수 있는 항목은 다음과 같습니다. Following items can be found. 
 
 - 복제 그룹 이름, 설명, 타입, 버전, 서비스 포트, 인스턴스 타입 Replication group's name, description, type, version, service port, and instance type 
-- Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, Availability area, and profile setup 
+- Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, Availability area, and configuration profile  
 - VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, Creation time, auto backup configuration 
 
 Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같습니다. Following items can be found when there is a replica node:
@@ -165,21 +166,21 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
 
 #### 복제 그룹 접속 Access to Replication Groups 
 
-생성된 복제 그룹을 선택하고 **접속 정보** 탭을 누릅니다.
+Select a created replication group and click **Access Information**. 생성된 복제 그룹을 선택하고 **접속 정보** 탭을 누릅니다.
 
 ![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_connection_info_kr.png)
 
-- 암호화된 비밀번호를 보려면 **보기** 버튼을 클릭합니다.
-- **복사**버튼을 누르면 비밀번호를 복사할 수 있습니다.
-- 접속 가능한 도메인 정보를 확인할 수 있습니다.
-- 공인 도메인을 설정하지 않은 Redis 노드는 외부에서 접근할 수 없습니다.
-- **복사**버튼을 누르면 도메인을 복사할 수 있습니다.
-- 접속 정보는 같은 VPC Subnet으로 연결된 노드의 애플리케이션에서 사용할 수 있습니다.
-- 커맨드는 같은 VPC Subnet으로 연결된 노드에서 실행할 수 있습니다.
-- 접속 제어 정보: 복제 그룹에 접근 가능한 사용자를 CIDR 형식으로 입력합니다.
-  - **내 IP 표시**: 로컬 IP가 CIDR 형식으로 표시됩니다.
-  - **생성** 버튼을 누르면 등록됩니다.
-  - 접속 제어 정보에 등록되지 않은 IP는 접속할 수 없습니다.
+- 암호화된 비밀번호를 보려면 **보기** 버튼을 클릭합니다. To see encrypted password, click **View**. 
+- **복사**버튼을 누르면 비밀번호를 복사할 수 있습니다. With **Copy**, you can copy password.  
+- 접속 가능한 도메인 정보를 확인할 수 있습니다. Check information of domains that can be accessed. 
+- 공인 도메인을 설정하지 않은 Redis 노드는 외부에서 접근할 수 없습니다. A Redis node without public domain setting does not allow external access.  
+- **복사**버튼을 누르면 도메인을 복사할 수 있습니다. Click **Copy** to copy domain. 
+- 접속 정보는 같은 VPC Subnet으로 연결된 노드의 애플리케이션에서 사용할 수 있습니다. Access information is available on an application of node connected with same VPC subnet. 
+- 커맨드는 같은 VPC Subnet으로 연결된 노드에서 실행할 수 있습니다 Commands are executable on nodes connected with same VPC subnet. 
+- 접속 제어 정보: 복제 그룹에 접근 가능한 사용자를 CIDR 형식으로 입력합니다. Access Control Information: Enter accessible users to a replication group in the CIDR format. 
+  - **Show My IP 내 IP 표시**: Displays local IPs in the CIDR format. 로컬 IP가 CIDR 형식으로 표시됩니다.
+  - Press **Create 생성** to register. 버튼을 누르면 등록됩니다.
+  - Cannot access with IPs that are not registered for access control information. 접속 제어 정보에 등록되지 않은 IP는 접속할 수 없습니다.
 
 #### 노드 정보 Node Information 
 
@@ -317,7 +318,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 - 프로필의 상태를 확인할 수 있습니다.
 
-| 상태         | 설명                                                         |
+| Status        | Description                                                         |
 | ------------ | ------------------------------------------------------------ |
 | 정상         | 프로필을 수정, 삭제할 수 있습니다.                           |
 | 변경 적용 중 | 프로필을 변경했고 변경 내용을 각 노드에 전파 중인 상태입니다. <br />변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다. <br />변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다. |
