@@ -20,23 +20,23 @@ To use EasyCache, you must create replication groups in the first place. 를 사
       - Setting is available between 10000 and 12000 사이로 설정할 수 있습니다.
     - Version 버전: Select a Redis version to create. 생성할 Redis 버전을 선택합니다.
       - 2020년 6월 현재 5.0.8만 지원합니다. As of June 2020, only 5.0.8 is supported. 
-    - Instace Type 인스턴스 타입: Select specifications for the replication group. 복제 그룹의 사양을 선택합니다.
+    - Instance Type 인스턴스 타입: Select specifications for the replication group. 복제 그룹의 사양을 선택합니다.
     - Max Memory: Adjust the max memory to prevent memory shortage from synchronization or backup. 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다.
       - You may change the volume of max memory for Redis server. 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다.
-      - If required, management volume can be secured. 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
+      - If required, memory volume can be flexibly secured for management. 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
     - Availability Area 가용성 영역: Select an area in which replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
     - Configuration File설정 프로필: Select a configuration file for Redis의 설정 파일을 선택합니다.
       - Provides basic profile. 기본 프로필을 제공합니다.
       - More configuration file can be added for selection. 설정 프로필을 추가해 선택할 수 있습니다.
-    - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다.
-    - Auto Backup Setting자동 백업 설정: Select to enable auto backup. 자동 백업 사용 여부를 선택합니다.
+    - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다. Select a subnet for Compute & Network to allow private network communication; if not, a default network shall be configured. 
+    - Auto Backup Setting자동 백업 설정: Select whether to enable auto backup. 자동 백업 사용 여부를 선택합니다.
       - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다. Available from 1 day up to 30 days
-      - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다. Specify the start time of backup, by 30-minute interval.
+      - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다. Specify start time of backup, by 30-minute interval.
       - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다. Backup to start at a random point between backup start time and specified time. Available from 1 hour up to 3 hours. 
 3. Click **Create 생성** 버튼을 클릭합니다.
 
 4. Check what has been entered and click **Create**. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
-   Along with a replication group, the master node is created. It takes a few minutes to create.  복제 그룹이 생성되면서 Master 노드가 생성됩니다. 생성될 때까지 몇 분 정도 걸립니다.
+   Along with a replication group, a master node is created. It takes a few minutes to create.  복제 그룹이 생성되면서 Master 노드가 생성됩니다. 생성될 때까지 몇 분 정도 걸립니다.
    
 ##### 제약 사항 Constraints 
 - 서비스에 치명적인 영향을 줄 수 있는 명령어에 대해서 사용이 제한됩니다. Service is restricted for such commands that may severely impact service.  
@@ -52,12 +52,12 @@ Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습
 
 2. Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다. To see if the master node has gone down, wait time can be set for health check response. Default is 3000ms. 
 
-3. Select an available zone to create a replica node. Selecting a different available zone from the original master node makes it more available.  Replica 노드가 생성될 가용 존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용 존을 선택하면 가용성이 좋습니다.
+3. Select an available zone to create a replica node. By selecting a different available zone from the original master node, more availability can be attained.   Replica 노드가 생성될 가용 존을 선택할 수 있습니다. 원본 Master 노드와 다른 가용 존을 선택하면 가용성이 좋습니다.
 
 4. Master 노드의 정보를 확인할 수 있습니다. Find out information of the master node. 
 
 5. Click **Add**, and a replica node is created. 버튼을 누르면 Replica 노드가 생성됩니다.
-6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > Node Information노드 정보**에서 확인할 수 있습니다.
+6. To check information of the node, go to 생성된 노드의 정보는 **Replication Groups복제 그룹 > Node Information**에서 확인할 수 있습니다.
    생성 중 자동으로 복제 관계가 설정됩니다. Replication relation is automatically set while it is created. 
 
 Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The replica node has the same server specifications as the original master node. 
@@ -72,7 +72,7 @@ Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The 
 
 Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다. By adding a replica node to the master node of Standalone, high availability is automatically configured. 
 
-- With an auto failover when an error occurs on the master node, downtime can be reduced to the minimum. Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
+- By configuring an auto failover, downtime can be reduced to the minimum when an error occurs on the master node. Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
 - Failover refers to detecting a master node in which error occurred and automatically promoting a replica node as the master. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
 - You may find events on failure and status of the master or replica node. aster, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
 
@@ -83,9 +83,9 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
 - With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high-availability is not enabled. 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
-- Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다. By adding a replica node to a standalone master node, high availability can be newly specified. 
+- Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다. By adding a replica node to the standalone master node, high availability can be newly specified. 
 - 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다. The newly changed master node inherits the domain applied to access the existing master node. 
-- 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다. The existing node with failover becomes 'Disabled', under which, high availability is not provided to a new master node only. 
+- 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다. The existing node with failover becomes 'Disabled', under which, high availability is not enabled on the new master node only. 
 
 ### 복제 그룹 수정 Modifying Replication Groups 
 
@@ -100,8 +100,8 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 - Max Memory: Volume of the maximum memory for usage can be changed. 사용할 최대 메모리의 용량을 변경할 수 있습니다.
 - Master Down Timer 마스터 다운 판정 시간 :Wait time can be configured for a health check response to see if the master node is down; default is 3000ms.  Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
 - Auto Backup Configuration 자동 백업 설정: Select whether to use auto backup 자동 백업 사용 여부를 선택합니다.
-	- Backup Retention Period 백업 보관 기간 : From 1, up to 30 days. 1일부터 최대 30일까지 보관할 수 있습니다.
-	- Backup Start Time백업 시작 시간 : Specify start time of a backup, by 30-minute interval.  백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
+	- Backup Retention Period: From 1, up to 30 days. 
+	- Backup Start Time: Specify start time of a backup, by 30-minute interval.  
 	- Backup Time백업 소요 시간 : Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
 
 3. Check changes and click **Change**. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
@@ -110,8 +110,8 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 ### 자동 백업 Auto Backups 
 
 - Memory data (RDB file) is automatically backed up at a specified time once every day. 매일 1회 지정된 시간에 자동으로 메모리 데이터(RDB 파일)를 백업합니다.
-- To manage auto backups that are created, go to 생성된 자동 백업은 **Backup백업 **탭에서 관리할 수 있습니다.
-- When a replication group bound for backup is deleted, backup files are deleted altogether. 백업 대상이 된 복제 그룹이 삭제되면 백업 파일도 삭제됩니다.
+- To manage auto backups that are created, go to **Backup**.
+- When a replication group bound for backup is deleted, backup files are deleted altogether. 
 - After a backup retention period, backup files will be automatically deleted. 지정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다.
 - Auto backup is to start randomly between start time and backup time. 자동 백업은 백업 시작 시각부터 백업 소요 시간 사이 중 임의의 시점에 시작됩니다.
 
@@ -126,23 +126,23 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 1. 수동 백업 파일을 만들려면  대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 클릭합니다. To create manual backup files, select a replication group and click **Manual Backup**. 
 2. **수동 백업** 대화 상자에서 정보를 입력하고 **백업** 버튼을 클릭합니다. Enter information for **Manual Bakup** and click **Backup**.  
-    데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다. BAckup 
+    데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다. It may take more time to create a backup in proportion to the size of data.
     ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.04.28/rep_manual_backup_001.PNG)
 
 - Backup Name 백업 이름: Enter name of a backup.백업 이름을 입력합니다.
-- Description 설명: Enter description of the backup. 백업 설명을 입력합니다.
+- Description 설명: Enter description of a backup. 백업 설명을 입력합니다.
 - Backup Retention Period 백업 보관 기간: 삭제하지 않거나 1일부터 최대 30일까지 보관할 수 있습니다.You may not delete, or retain backup from 1 day, up to 30 days. 
 
 ### 도메인 관리 Domain Management 
 
-* 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다. Access to a replication group is available only on instances sharing the same subnet, bu to enable external access, configure public domain setting from domain mnanagement.  
+* 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다. Access to a replication group is available only on instances sharing the same subnet, but to enable external access, configure public domain setting from domain mnanagement.  
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.05.14/rep_public_domain_001.png)
 
 ##### 제약 사항 Constraints 
 
 - 수동 백업 생성 중에 중복으로 수동 백업을 할 수 없습니다. 진행 중인 수동 백업이 끝난 뒤 다시 시도해 주세요. Redundant manual backup is unavailable. Try again after current manual backup is done.  
-- 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성되지 않고 지연될 수 있습니다. A manual backup execution during auto backup time may be delayed. 
+- 자동 백업 시간에 수동 백업을 할 경우 수동 백업이 즉시 생성되지 않고 지연될 수 있습니다. Executing a manual backup during auto backup time may be delayed. 
 
 ### 복제 그룹 상세 Replication Group Details 
 
@@ -158,11 +158,11 @@ Select a created replication group, press the **Basic Information** tab and chec
 
 - 복제 그룹 이름, 설명, 타입, 버전, 서비스 포트, 인스턴스 타입 Replication group's name, description, type, version, service port, and instance type 
 - Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, Availability area, and configuration profile  
-- VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, Creation time, auto backup configuration 
+- VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, Creation date, auto backup configuration 
 
 Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같습니다. Following items can be found when there is a replica node:
 
-- 마스터 다운 판정 시간 
+- 마스터 다운 판정 시간 Master down timer 
 
 #### 복제 그룹 접속 Access to Replication Groups 
 
@@ -184,11 +184,11 @@ Select a created replication group and click **Access Information**. 생성된 �
 
 #### 노드 정보 Node Information 
 
-생성된 복제 그룹을 선택하고 **노드 정보** 탭을 누르면 복제 그룹 노드의 상세 정보를 확인하고 Replica 노드를 Master 노드로 승격할 수 있습니다.
+Select a created replication group, press **Node Information**, and you can check node details of the replication group and promote a replica node to master node. 생성된 복제 그룹을 선택하고 **노드 정보** 탭을 누르면 복제 그룹 노드의 상세 정보를 확인하고 Replica 노드를 Master 노드로 승격할 수 있습니다.
 
 ![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_node_info_002.PNG)
 
-- Select a replica node and press promotion to master, and the selected replica node can be promoted to the master node. Then, the existing master node is changed to a replica node. Replica 노드를 선택하고 마스터 승격을 누르면, 선택한 Replica 노드를 Master 노드로 승격할 수 있습니다. 이 때 Master 노드는 Replica 노드로 변경됩니다.
+- Select a replica node and press Promote to Master, and the selected replica node can be promoted to the master node. Then, the existing master node is changed to a replica node. Replica 노드를 선택하고 마스터 승격을 누르면, 선택한 Replica 노드를 Master 노드로 승격할 수 있습니다. 이 때 Master 노드는 Replica 노드로 변경됩니다.
 - 확인할 수 있는 항목은 다음과 같습니다.Following itesm can be found:
   - 노드 이름, 종류, IP, 가용성 영역, 생성일, 상태 Node name, Type, IP, Availability area, Date of creation, and Status 
 
@@ -213,7 +213,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 - 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다. By clicking on a chart, it is expanded for display.  
 - 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다. On the expanded chart, statistics and collection period may be changed for display. 
   - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.Statistical method is applied to show accumulated data, and if the collection time is 1 minute, 
-- 모니터링 데이터 보존 기간은 1개월입니다.Monitoring data is retained for 1 month. 
+- 모니터링 데이터 보존 기간은 1개월입니다.Monitoring data can be retained for 1 month. 
 
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
 - 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
