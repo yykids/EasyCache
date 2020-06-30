@@ -280,11 +280,11 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
     - Redis 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다. Volume of the max memory can be changed for Redis server. 
     - 최대 메모리 용량을 변경할 수 있어 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다. 
   - Availability Area 가용성 영역: Select an area in which a replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
-  - 설정 프로필: 백업 대상이 된 복제 그룹의 Redis 설정 파일이 표시됩니다.
+  - Configuration Profile 설정 프로필: 백업 대상이 된 복제 그룹의 Redis 설정 파일이 표시됩니다.
     - 설정 프로필을 추가해 변경할 수 있습니다.
-  - VPC Subnet: 백업 대상이 된 복제 그룹의 VPC Subnet이 표시됩니다.
+  - VPC Subnet: 백업 대상이 된 복제 그룹의 Shows VPC Subnet of a replication group for backup 이 표시됩니다.
     - 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택할 수 있습니다.
-  - 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
+  - Auto Backup Setting 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
     - 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
     - 백업 시작 시간: 백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
     - 백업 지연 시간: 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 3시간까지 지정할 수 있습니다.
@@ -293,24 +293,24 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ### 설정 프로필 생성 Creating Configuration Profile
 
-변경이 가능한 Redis의 설정을 프로필 형태로 등록해 관리할 수 있습니다.
+변경이 가능한 Redis의 설정을 프로필 형태로 등록해 관리할 수 있습니다. Redis configuration which is available for change can be registered as profile for management. 
 
-1. 프로필로 등록하려면 **프로필 설정** 탭에서 **프로필 생성** 버튼을 클릭합니다.
-2. **프로필 생성** 대화 상자에서 프로필 이름, 설명, 프로필 적용 버전을 선택할 수 있습니다. 
+1. To register as profile, go to **Profile Setting** and click **Create Profile**. 프로필로 등록하려면 **프로필 설정** 탭에서 **프로필 생성** 버튼을 클릭합니다.
+2. On the **Create Profile프로필 생성** window, select name, description, and version of a profile.  대화 상자에서 프로필 이름, 설명, 프로필 적용 버전을 선택할 수 있습니다. 
 
 ![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_001_ko.png)
 
-3. **상세 설정**을 클릭하여 프로필 설정을 항목 별로 변경 할 수 있습니다. 변경 없이 프로필을 등록하면 기본 설정을 사용합니다.
+3. On **Detail Setting상세 설정**, you may change each profile item. 을 클릭하여 프로필 설정을 항목 별로 변경 할 수 있습니다. 변경 없이 프로필을 등록하면 기본 설정을 사용합니다.
 
 ![pro_003.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_003_ko.png)
 
-4. **생성** 버튼을 클릭하여 프로필을 등록할 수 있습니다. 
+4. Click **Create** and register profile. 버튼을 클릭하여 프로필을 등록할 수 있습니다. 
 
-- 등록한 프로필 정보를 수정하면 이용 중인 노드에도 반영됩니다.
+- 등록한 프로필 정보를 수정하면 이용 중인 노드에도 반영됩니다. Modify registered profile and it is also applied to nodes in service. 
 
-- 등록한 프로필을 삭제할 수 있습니다. 단, 이용 중인 노드가 있는 프로필은 삭제할 수 없습니다.
+- 등록한 프로필을 삭제할 수 있습니다. 단, 이용 중인 노드가 있는 프로필은 삭제할 수 없습니다. You may delete a registered profile, unless it has a node in service. 
 
-- 등록한 프로필을 복사하여 사용할 수 있습니다. 또한 복사할때 항목 값을 변경할 수 있습니다.
+- 등록한 프로필을 복사하여 사용할 수 있습니다. 또한 복사할때 항목 값을 변경할 수 있습니다. You may copy a registered profile for use. Item  
 
 - 기본 설정 정보가 있는 기본 프로필을 제공합니다.
 
@@ -320,15 +320,15 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 | Status        | Description                                                         |
 | ------------ | ------------------------------------------------------------ |
-| 정상         | 프로필을 수정, 삭제할 수 있습니다.                           |
-| 변경 적용 중 | 프로필을 변경했고 변경 내용을 각 노드에 전파 중인 상태입니다. <br />변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다. <br />변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다. |
-| 이용 중      | 프로필을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다. <br />복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다. <br />프로필이 이용중인 상태에서는 프로필을 작성, 수정할 수 없습니다. |
+| 정상 Normal        | 프로필을 수정, 삭제할 수 있습니다.  Profile can be modified or deleted.                          |
+| 변경 적용 중 Applying Changes | Changed profile and transmitting changes to each node. 프로필을 변경했고 변경 내용을 각 노드에 전파 중인 상태입니다. <br /> Once changes are transmitted, the status is changed to normal. 변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다. <br /> While change is underway, you cannot create, modify, or delete a replication group. 변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다. |
+| 이용 중  In Service    | Replication group is being created or changed with a profile. 프로필을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다. <br />복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다. <br />프로필이 이용중인 상태에서는 프로필을 작성, 수정할 수 없습니다. |
 
 
 
 ### 프로필 상세 Profile Details 
 
-프로필 상세 정보를 확인할 수 있습니다. Profile details can be found. 
+프로필 상세 정보를 확인할 수 있습니다. Check profile details like below. 
 
 ![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/profile_002.PNG)
 
@@ -370,8 +370,8 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 
 ### 알람 규칙 Alarm Rules 
 
-알람 발생 조건과 대상, 수신 그룹을 지정합니다.
-1. 원하는 알림을 설정하려면 **알림** 탭에서 **알람 규칙 생성** 버튼을 클릭합니다.
+알람 발생 조건과 대상, 수신 그룹을 지정합니다. Specify conditions, targets, and recipient groups of an alarm. 
+1. 원하는 알림을 설정하려면 **알림** 탭에서 **알람 규칙 생성** 버튼을 클릭합니다. To set alarms you need, go to **Alarms** and click **Create Alarm Rules**. 
 
 2. **알람 규칙 생성** 대화 상자에서 알람 발생 조건과 알람을 수신할 수신 그룹을 지정합니다.
 ![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_002.PNG)
@@ -431,20 +431,20 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 
 |Type | Event   | Event Details |
 |-----| ------ | ---------------- |
-| **Replication Group복제 그룹** | Delete 삭제   | 시작, 실패, 종료 |
-|             | 생성   | 시작, 실패, 종료 |
-|             |  수정   | 시작, 실패, 종료 |
-|             |  재시작 | 시작, 실패, 종료 |
-| **공인 도메인** | 설정 | 시작, 실패, 종료 |
-|             | 해제 | 시작, 실패, 종료 |
-| **Cache Instance 캐시 인스턴스** | 연결 | 성공, 실패 |
-| **Node노드** | 삭제 | 시작, 실패, 종료 |
-|         | 추가 | 시작, 실패, 종료 |
-|         | 마스터 승격 | 시작, 실패, 종료 |
-|         | 상태 | 비활성화됨, 활성화됨 |
-| **Profile 프로필** | 수정 | 시작, 실패, 종료 |
-| **Auto자동 HA** | 삭제 | 시작, 종료 |
-|            | 설정 | 시작, 실패, 종료 |
-| **Failover 장애 조치(failover)** |  | 성공 |
-| **Backup 백업** | 수동 백업 | 시작, 실패, 종료 |
-|        | 자동 백업 | 시작, 실패, 종료 |
+| **Replication Group복제 그룹** | Delete 삭제   | Started시작, Failed실패, Closed 종료 |
+|             | Create 생성   | Started시작, Failed실패, Closed 종료 |
+|             | Modify수정   | Started, Failed, Closed 시작, 실패, 종료 |
+|             | Restart 재시작 | Strated, Failed, Closed 시작, 실패, 종료 |
+| **공인 도메인** | Setting설정 | Started, Failed, Closed 시작, 실패, 종료 |
+|             | 해제 | Started, Failed, Closed 시작, 실패, 종료 |
+| **Cache Instance 캐시 인스턴스** | Connect 연결 | Successful, Failed 성공, 실패 |
+| **Node노드** | Delete삭제 | Started, Failed, Closed 시작, 실패, 종료 |
+|         | Add 추가 | Started시작, Failed, Closed 실패, 종료 |
+|         | Promote to Master 마스터 승격 | Started, Failed, Closed 시작, 실패, 종료 |
+|         | Status상태 | Disabled, Enabled 비활성화됨, 활성화됨 |
+| **Profile 프로필** | Modify 수정 | Started, Failed, Closed 시작, 실패, 종료 |
+| **Auto자동 HA** | Delete 삭제 | Started, Closed 시작, 종료 |
+|            | Setting 설정 | Started, Failed, Closed 시작, 실패, 종료 |
+| **Failover 장애 조치(failover)** |  | Successful 성공 |
+| **Backup 백업** | Manual Backup 수동 백업 | Started, Failed, Closed 시작, 실패, 종료 |
+|        | Auto Backup 자동 백업 | Started, Failed, Closed 시작, 실패, 종료 |
