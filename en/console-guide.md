@@ -1,4 +1,4 @@
-## Database > EasyCache > 콘솔 사용 가이드 Console User Guide
+## Database > EasyCache > Console User Guide
 
 ## 시작하기 Getting Started 
 
@@ -73,18 +73,18 @@ Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다. The 
 Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고가용성 기능이 설정됩니다. By adding a replica node to the master node of Standalone, high availability is automatically configured. 
 
 - With an auto failover when an error occurs on the master node, downtime can be reduced to the minimum. Master 노드를 감시하여 장애가 발생했을 때 자동으로 장애 조치(failover)를 해 다운타임(downtime)을 최대한 단축할 수 있습니다.
-- Failover refers to detecting a master node in which error occurred and promoting a replica node to the master node. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
+- Failover refers to detecting a master node in which error occurred and automatically promoting a replica node as the master. 장애 조치(failover)는 장애가 발생한 Master 노드를 감지해 자동으로 Replica 노드를 Master 노드로 승격시키는 것을 말합니다.
 - You may find events on failure and status of the master or replica node. aster, Replica 노드의 장애 및 상태에 관한 이벤트를 확인할 수 있습니다.
 
 ##### 제약 사항 Constraints 
 
-- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다. If it fails in high availability configuration while adding replica nodes, go to **Replication Groups > Basic Information** and click **Reconfigure HA** to re-configure high availability.  
+- Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다. If it fails in high availability configuration while adding a replica node, go to **Replication Groups > Basic Information** and click **Reconfigure HA** to re-configure high availability.  
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
 
 - With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high-availability is not enabled. 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
 - Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다. By adding a replica node to a standalone master node, high availability can be newly specified. 
-- 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다. The newly changed master node inherits domain applied to access the existing master node. 
+- 변경된 새 Master 노드는 기존 Master 노드의 접속에 사용되는 도메인을 승계합니다. The newly changed master node inherits the domain applied to access the existing master node. 
 - 장애 조치를 수행한 기존의 Master 노드는 ‘이용 불가’ 상태가 되고, 이용 불가 상태에서 새 마스터 노드로만 고가용성 기능이 제공되지 않습니다. The existing node with failover becomes 'Disabled', under which, high availability is not provided to a new master node only. 
 
 ### 복제 그룹 수정 Modifying Replication Groups 
@@ -94,14 +94,14 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_modify_002.PNG)
 
-- Name of Replication Group복제 그룹 이름: Name can be changed. 복제 그룹 이름을 변경할 수 있습니다.
+- Name of Replication Group복제 그룹 이름: Name of a replication group can be changed. 복제 그룹 이름을 변경할 수 있습니다.
 - Description설명: Description of a replication group can be changed. 복제 그룹 설명을 변경할 수 있습니다.
 - Configuration Profile설정 프로필: Redis setting can be changed. 설정을 변경할 수 있습니다.
 - Max Memory: Volume of the maximum memory for usage can be changed. 사용할 최대 메모리의 용량을 변경할 수 있습니다.
-- 마스터 다운 판정 시간 : Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
+- Master Down Timer 마스터 다운 판정 시간 :Wait time can be configured for a health check response to see if the master node is down; default is 3000ms.  Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
 - Auto Backup Configuration 자동 백업 설정: Select whether to use auto backup 자동 백업 사용 여부를 선택합니다.
 	- Backup Retention Period 백업 보관 기간 : From 1, up to 30 days. 1일부터 최대 30일까지 보관할 수 있습니다.
-	- Backup Start Time백업 시작 시간 : Specify start time of a backup, by 30 minute interval.  백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
+	- Backup Start Time백업 시작 시간 : Specify start time of a backup, by 30-minute interval.  백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
 	- Backup Time백업 소요 시간 : Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
 
 3. Check changes and click **Change**. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
