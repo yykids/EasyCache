@@ -198,42 +198,42 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
 
-- At every press of the 1-hour or 24-hour button, it is updated as of the current time. 1시간, 24시간 등의 버튼을 누를 때마다 현재 시각을 기준으로 계산하여 갱신합니다.
-  - The **1 Hour시간** button shows data collected at every minute on a chart. 버튼은 1분마다 수집한 데이터를 차트에 표시합니다.
-  - The **12 Hour시간** button shows 10-minute average value of collected data on a chart.  버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-  - The **24 Hour 시간** button shows 10-minute average value of collected data on a chart. 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-  - The **1 Month개월** button shows 6-hour average value of collected data on a chart. 버튼은 수집한 데이터의 6시간의 평균값을 차트에 표시합니다.
-  - Click **Specify 지정** to specify search period. 버튼을 클릭해 직접 검색 기간을 지정할 수 있습니다.
+- With every click of the 1-hour or 24-hour button, it is updated as of the current time. 1시간, 24시간 등의 버튼을 누를 때마다 현재 시각을 기준으로 계산하여 갱신합니다.
+  - The **1 Hour** button shows data collected at every minute on a chart. 버튼은 1분마다 수집한 데이터를 차트에 표시합니다.
+  - The **12 Hour** button shows 10-minute average value of collected data on a chart.  버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
+  - The **24 Hour** button shows 10-minute average value of collected data on a chart. 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
+  - The **1 Month** button shows 6-hour average value of collected data on a chart. 
+  - Click **Specify** to specify search period. 버튼을 클릭해 직접 검색 기간을 지정할 수 있습니다.
 - Search period can be specified with clicks on the calendar. 캘린터를 클릭하여 검색 시점을 지정할 수 있습니다.
-  - Although a day or time is selected on the calendar, selected search period shall sustsin. 캘린더에서 날짜나 시간을 선택하여도 선택한 검색 기간은 유지됩니다.
+  - Although a day or time is selected on the calendar, selected search period sustains. 캘린더에서 날짜나 시간을 선택하여도 선택한 검색 기간은 유지됩니다.
 - A click on the current time results in the re-search of the period selected as of the current time. 현재 시간 버튼을 클릭하면 현재시간을 기준으로 선택한 검색 기간을 재검색 합니다.
 - With an arrow on the right of the current time button, you may search for time before or after, as much as the search period.  현재 시간 버튼의 오른쪽에 있는 화살표 버튼을 이용하여 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
 - 복제 그룹 드롭다운에서 차트를 표시할 복제 그룹을 선택할 수 있습니다. A replication group can be selected to show charts from the replication group dropdown. 
 - 자동 갱신 을 체크하면 60초 마다 차트 데이터를 갱신합니다. With Auto Update enabled, chart data is updated at every 60 seconds. 
 - 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다. By clicking on a chart, it is expanded for display.  
 - 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다. On the expanded chart, statistics and collection period may be changed for display. 
-  - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.Statistical method is applied to show accumulated data, and if the collection time is 1 minute, 
+  - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied.  
 - 모니터링 데이터 보존 기간은 1개월입니다.Monitoring data can be retained for 1 month. 
 
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
-- 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
-- 모니터링 항목은 다음과 같습니다.
+- 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다. In monitoring, you may opt to show selected items only from **Filter Conditions**. 
+- 모니터링 항목은 다음과 같습니다. Find out the monitoring items as follows: 
   - CPU 이용률 CPU Usage Ratio 
   - 시스템 메모리 System Memory
   - 연결된 클라이언트 Connected Client
   - 블록된 클라이언트 Blocked Client
-  - Redis 메모리 사용량 Redis Memory Usage Volum
-  - Redis 메모리 사용량(rss) 
-  - 메모리 파편화 비율
-  - 초당 처리한 명령 수
-  - 입력 바이트 
-  - 출력 바이트
-  - 만료된 키 수(expired)
-  - 삭제된 키 수(evicted)
-  - 조회 성공 수 
-  - 조회 실패 수
-  - 조회 성공률
-  - 키 개수
+  - Redis 메모리 사용량 Redis Memory Usage Volume
+  - Redis 메모리 사용량(rss)  Redis Memory Usage Volume
+  - 메모리 파편화 비율 Memory Fragmentation Ratio
+  - 초당 처리한 명령 수 Command Count per Second 
+  - 입력 바이트 Input Byte
+  - 출력 바이트 Output Byte 
+  - 만료된 키 수(expired) Expired Key Count
+  - 삭제된 키 수(evicted) Evicted Key Count
+  - 조회 성공 수 Successful Query Count
+  - 조회 실패 수 Failed Query Count 
+  - 조회 성공률 Successful Query Rate 
+  - 키 개수 Key Count 
   - get 실행 횟수
   - get usec/get calls
   - set 실행 횟수
@@ -246,40 +246,40 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ![backup_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_001.PNG)
 
-- 백업 파일을 하나 또는 여러 개 선택해 삭제할 수 있습니다.
-- 검색어란에 백업 이름 또는 복제 그룹 이름을 입력하고 **검색**을 누르면 결과가 나타납니다.
-- **새로 고침**을 눌러 백업 파일 목록을 갱신해 정보를 확인할 수 있습니다.
+- 백업 파일을 하나 또는 여러 개 선택해 삭제할 수 있습니다. You may select one or many backup files to delete. 
+- 검색어란에 백업 이름 또는 복제 그룹 이름을 입력하고 **검색**을 누르면 결과가 나타납니다. Enter name of a backup or replication group on the search window, and press **Search** to find the result. 
+- With **Refresh새로 고침**, update the list of backup files and find information.  을 눌러 백업 파일 목록을 갱신해 정보를 확인할 수 있습니다.
 
-- **기본 정보**에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
+- **Basic Information기본 정보** has details of a backup file or a replication group.  에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
 ![backup_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_003.PNG)
-	- 백업 파일 상세
-  백업 이름, 설명, 타입, 캐시 크기, 백업 파일 크기, 백업 보관 기간, 백업 최종 보관일, 상태, 백업 시작 일자
-	- 복제 그룹 상세
-  복제 그룹 이름, 인스턴스 타입, 버전, Max Memory(최대 메모리), 서비스 포트, VPC Subnet
+	- 백업 파일 상세 Backup File Details 
+  Name, Description, or Type of backup, Size of cache or Backup file, Backup retention period, Last retention date, Status, or Backup start date  백업 이름, 설명, 타입, 캐시 크기, 백업 파일 크기, 백업 보관 기간, 백업 최종 보관일, 상태, 백업 시작 일자
+	- 복제 그룹 상세 Replication Group Details 
+  Name of replication group, Type or version of instance, Max memory, Service port, VPC Subnet  복제 그룹 이름, 인스턴스 타입, 버전, Max Memory(최대 메모리), 서비스 포트, VPC Subnet
 
 ### 복원Restoration
 
-보관된 백업 파일을 이용해 메모리 데이터를 복원할 수 있습니다. 
+보관된 백업 파일을 이용해 메모리 데이터를 복원할 수 있습니다. Memory data can be restored by using retained backup files. 
 
-1. 복원하려면 백업 파일을 선택하고 **복제 그룹 복원**을 클릭합니다. 복원 시 원본 노드를 변경하지 않고 같은 사양 또는 다른 사양의 새 노드를 생성할 수 있습니다.
+1. To restore, select a backup file and click **Restore Replication Groups**. For restoration, a new node with the same or different specifications can be created without changing the origin node. 복원하려면 백업 파일을 선택하고 **복제 그룹 복원**을 클릭합니다. 복원 시 원본 노드를 변경하지 않고 같은 사양 또는 다른 사양의 새 노드를 생성할 수 있습니다.
    ![restore_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/restore_001.PNG)
 
-2. **복제 그룹 복원** 대화 상자에서 다음 항목을 입력하고 **생성** 버튼을 클릭합니다. 생성된 복제 그룹은 **복제 그룹** 탭에서 확인할 수 있습니다.
-  - 백업 이름: 복원할 백업 파일 이름
-  - 복제 그룹 이름: 복제 그룹 이름을 입력합니다.
-  - 설명: 복제 그룹의 설명을 입력합니다.
-  - 서비스 포트: 백업 대상이 된 복제 그룹의 포트가 표시됩니다.
-    - Redis의 포트 번호를 변경할 수 있습니다.
-    - 10000~12000 사이로 설정할 수 있습니다.
-  - 버전: 백업 대상이 된 복제 그룹의 Redis 버전이 표시됩니다.
-    - 2020년 6월 현재 5.0.8만 지원합니다.
-  - 인스턴스 타입: 백업 대상이 된 복제 그룹의 사양이 표시됩니다.
-    - 백업의 캐시 크기보다 큰 인스턴트 타입만 표시됩니다.
-    - 인스턴트 타입을 변경할 수 있습니다.
-  - Max Memory: 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다.
-    - Redis 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다.
-    - 최대 메모리 용량을 변경할 수 있어 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다.
-  - 가용성 영역: 복제 그룹이 생성될 영역을 선택합니다.
+2. On the **Restore Replication Groups 복제 그룹 복원** window, enter the following and click **Create**. Find created replication groups on the **Replication Group** tab.  대화 상자에서 다음 항목을 입력하고 **생성** 버튼을 클릭합니다. 생성된 복제 그룹은 **복제 그룹** 탭에서 확인할 수 있습니다.
+  - Name of Backup 백업 이름: Backup file name to restore 복원할 백업 파일 이름
+  - Name of Replication Group복제 그룹 이름: Enter name of a replication group.  복제 그룹 이름을 입력합니다.
+  - Description설명: Enter description of a replication group. 복제 그룹의 설명을 입력합니다.
+  - Service Port 서비스 포트: Shows the port of a replication group bound for backup. 백업 대상이 된 복제 그룹의 포트가 표시됩니다.
+    - Redis의 포트 번호를 변경할 수 있습니다.Port number of Redis can be changed.
+    - 10000~12000 사이로 설정할 수 있습니다. Available between 10000 and 12000. 
+  - Version 버전: 백업 대상이 된 복제 그룹의 Redis 버전이 표시됩니다. Shows the version of Redis of a replication group for backup. 
+    - 2020년 6월 현재 5.0.8만 지원합니다. As of June 2020, only 5.0.8 is supported. 
+  - Instance Type 인스턴스 타입: 백업 대상이 된 복제 그룹의 사양이 표시됩니다. Shows the specification of a replication group bound for backup. 
+    - 백업의 캐시 크기보다 큰 인스턴트 타입만 표시됩니다. Shows instance types that are larger than cache of a backup only.  
+    - 인스턴트 타입을 변경할 수 있습니다. Instance type can be changed. 
+  - Max Memory: 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다. Max memory can be adjusted to prevent memory shortage from synchronization or backup. 
+    - Redis 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다. Volume of the max memory can be changed for Redis server. 
+    - 최대 메모리 용량을 변경할 수 있어 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다. 
+  - Availability Area 가용성 영역: Select an area in which a replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
   - 설정 프로필: 백업 대상이 된 복제 그룹의 Redis 설정 파일이 표시됩니다.
     - 설정 프로필을 추가해 변경할 수 있습니다.
   - VPC Subnet: 백업 대상이 된 복제 그룹의 VPC Subnet이 표시됩니다.
@@ -332,12 +332,12 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/profile_002.PNG)
 
-- 프로필 상세 정보
-  - 항목 이름
+- 프로필 상세 정보 Profile Details
+  - 항목 이름 Item name
   - 기입 예: 항목의 입력 예시
   - 항목 값: 실제 설정된 값
   - 설명: 항목에 대한 설명
-- 프로필 항목
+- 프로필 항목 Profile items 
   - hash-max-ziplist-entries
   - hash-max-ziplist-value
   - latency-monitor-threshold
@@ -427,7 +427,7 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
   - REPLICATION_GROUP: REPLICATION_GROUP에 관련된 이벤트입니다. Events related to REPLICATION_GROUP.
   - PROFILE: PROFILE에 관련된 이벤트입니다. Events related to PROFILE. 
 
-##### 이벤트 항목 Event Item
+##### 이벤트 항목 Event Items
 
 |Type | Event   | Event Details |
 |-----| ------ | ---------------- |
