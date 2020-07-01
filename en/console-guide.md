@@ -32,7 +32,7 @@ To use EasyCache, you must create replication groups in the first place. 를 사
     - Auto Backup Setting자동 백업 설정: Select whether to enable auto backup. 자동 백업 사용 여부를 선택합니다.
       - Backup Retention Period 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다. Available from 1 day up to 30 days
       - Backup Start Time 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다. Specify start time of backup, by 30-minute interval.
-      - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다. Backup to start at a random point between backup start time and specified time. Available from 1 hour up to 3 hours. 
+      - Backup Time 백업 소요 시간: 백업 시작 시간부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다. Backup to start randomly between backup start time and specified time. Available from 1 hour up to 3 hours. 
 3. Click **Create 생성** 버튼을 클릭합니다.
 
 4. Check what has been entered and click **Create**. 확인 화면에서 입력한 내용을 확인하고 **생성** 버튼을 클릭합니다.
@@ -105,7 +105,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 	- Backup Time백업 소요 시간 : Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 1시간부터 최대 3시간까지 지정할 수 있습니다.
 
 3. Check changes and click **Change**. 변경 내용을 확인하고 **변경** 버튼을 클릭합니다.
-   Service port, Redis version, Instance type, and Availability area cannot be changed, once they are configured.  한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
+   Service Port, Redis Version, Instance Type, and Availability Area cannot be changed, once they are configured.  한번 설정한 서비스 포트, Redis 버전, 인스턴스 타입, 가용성 영역은 변경할 수 없습니다.
     
 ### 자동 백업 Auto Backups 
 
@@ -122,7 +122,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 - 생성된 수동 백업은 **백업**탭에서 관리할 수 있습니다. To manage manual backups that are created, go to **Backup**. 
 - 백업이 실행되는 동안 성능이 저하될 수 있습니다. Performance may be degraded while backup is executed. 
 - 설정된 백업 보관 기간이 지나면 백업 파일은 자동으로 삭제됩니다. After a backup retention period, backup files will be automatically deleted. 
-- 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다. If a replication group bound for backup is deleted, details of the group are not displayed on basic information. 
+- 백업 대상인 복제 그룹이 삭제되었다면 기본 정보에서 복제 그룹의 상세 내용은 표시되지 않습니다. If a replication group bound for backup is deleted, details of the group are not displayed for basic information. 
 
 1. 수동 백업 파일을 만들려면  대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 클릭합니다. To create manual backup files, select a replication group and click **Manual Backup**. 
 2. **수동 백업** 대화 상자에서 정보를 입력하고 **백업** 버튼을 클릭합니다. Enter information for **Manual Bakup** and click **Backup**.  
@@ -157,8 +157,8 @@ Select a created replication group, press the **Basic Information** tab and chec
 확인할 수 있는 항목은 다음과 같습니다. Following items can be found. 
 
 - 복제 그룹 이름, 설명, 타입, 버전, 서비스 포트, 인스턴스 타입 Replication group's name, description, type, version, service port, and instance type 
-- Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, Availability area, and configuration profile  
-- VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, Creation date, auto backup configuration 
+- Max Memory(최대 메모리), 가용성 영역, 설정 프로필 Max memory, availability area, and configuration profile  
+- VPC Subnet(서브넷), 생성일, 자동 백업 설정 VPC subnet, creation date, auto backup configuration 
 
 Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같습니다. Following items can be found when there is a replica node:
 
@@ -172,7 +172,7 @@ Select a created replication group and click **Access Information**. 생성된 �
 
 - 암호화된 비밀번호를 보려면 **보기** 버튼을 클릭합니다. To see encrypted password, click **View**. 
 - **복사**버튼을 누르면 비밀번호를 복사할 수 있습니다. With **Copy**, you can copy password.  
-- 접속 가능한 도메인 정보를 확인할 수 있습니다. Check information of domains that can be accessed. 
+- 접속 가능한 도메인 정보를 확인할 수 있습니다. Check accessible domain information.  
 - 공인 도메인을 설정하지 않은 Redis 노드는 외부에서 접근할 수 없습니다. A Redis node without public domain setting does not allow external access.  
 - **복사**버튼을 누르면 도메인을 복사할 수 있습니다. Click **Copy** to copy domain. 
 - 접속 정보는 같은 VPC Subnet으로 연결된 노드의 애플리케이션에서 사용할 수 있습니다. Access information is available on an application of node connected with same VPC subnet. 
@@ -210,8 +210,8 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 - With an arrow on the right of the current time button, you may search for time before or after, as much as the search period.  현재 시간 버튼의 오른쪽에 있는 화살표 버튼을 이용하여 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
 - 복제 그룹 드롭다운에서 차트를 표시할 복제 그룹을 선택할 수 있습니다. A replication group can be selected to show charts from the replication group dropdown. 
 - 자동 갱신 을 체크하면 60초 마다 차트 데이터를 갱신합니다. With Auto Update enabled, chart data is updated at every 60 seconds. 
-- 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다. By clicking on a chart, it is expanded for display.  
-- 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다. On the expanded chart, statistics and collection period may be changed for display. 
+- 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다. By clicking on the chart, it is expanded for display.  
+- 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다. On an expanded chart, statistics and collection period may be changed for display. 
   - 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied.  
 - 모니터링 데이터 보존 기간은 1개월입니다.Monitoring data can be retained for 1 month. 
 
@@ -234,20 +234,20 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
   - 조회 실패 수 Failed Query Count 
   - 조회 성공률 Successful Query Rate 
   - 키 개수 Key Count 
-  - get 실행 횟수
+  - get 실행 횟수 get execution count 
   - get usec/get calls
-  - set 실행 횟수
+  - set 실행 횟수 set execution count 
   - set usec/get calls
 
 
 ## Backups 백업
 
-**백업** 탭에서 백업과 백업 삭제 등을 할 수 있습니다. 백업 중에는 성능이 저하될 수 있으므로 서비스 부하가 적은 시간에 백업하는 것이 좋습니다. On the **Backup** tab, you may back up or delete backup. Since performance may be degraded during a backup, it is recommended to execute backup while service load is low. 
+**백업** 탭에서 백업과 백업 삭제 등을 할 수 있습니다. 백업 중에는 성능이 저하될 수 있으므로 서비스 부하가 적은 시간에 백업하는 것이 좋습니다. On the **Backup** tab, you may back up or delete backups. Since performance may be degraded during a backup, it is recommended to execute backup while service load is low. 
 
 ![backup_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_001.PNG)
 
 - 백업 파일을 하나 또는 여러 개 선택해 삭제할 수 있습니다. You may select one or many backup files to delete. 
-- 검색어란에 백업 이름 또는 복제 그룹 이름을 입력하고 **검색**을 누르면 결과가 나타납니다. Enter name of a backup or replication group on the search window, and press **Search** to find the result. 
+- 검색어란에 백업 이름 또는 복제 그룹 이름을 입력하고 **검색**을 누르면 결과가 나타납니다. Enter name of a backup or a replication group on the search window, and press **Search** to find the result. 
 - With **Refresh새로 고침**, update the list of backup files and find information.  을 눌러 백업 파일 목록을 갱신해 정보를 확인할 수 있습니다.
 
 - **Basic Information기본 정보** has details of a backup file or a replication group.  에서 백업 파일 상세 내용과 복제 그룹의 상세 내용을 확인할 수 있습니다.
@@ -255,7 +255,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 	- 백업 파일 상세 Backup File Details 
   Name, Description, or Type of backup, Size of cache or Backup file, Backup retention period, Last retention date, Status, or Backup start date  백업 이름, 설명, 타입, 캐시 크기, 백업 파일 크기, 백업 보관 기간, 백업 최종 보관일, 상태, 백업 시작 일자
 	- 복제 그룹 상세 Replication Group Details 
-  Name of replication group, Type or version of instance, Max memory, Service port, VPC Subnet  복제 그룹 이름, 인스턴스 타입, 버전, Max Memory(최대 메모리), 서비스 포트, VPC Subnet
+  Name of replication group, Type or version of instance, Max memory, Service port, and VPC Subnet  복제 그룹 이름, 인스턴스 타입, 버전, Max Memory(최대 메모리), 서비스 포트, VPC Subnet
 
 ### 복원Restoration
 
@@ -278,16 +278,17 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
     - 인스턴트 타입을 변경할 수 있습니다. Instance type can be changed. 
   - Max Memory: 최대 메모리를 조정해 동기화나 백업 실행 시 메모리 부족을 예방할 수 있습니다. Max memory can be adjusted to prevent memory shortage from synchronization or backup. 
     - Redis 서버에 사용할 최대 메모리의 용량을 변경할 수 있습니다. Volume of the max memory can be changed for Redis server. 
-    - 최대 메모리 용량을 변경할 수 있어 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다. 
+    - 최대 메모리 용량을 변경할 수 있어 필요할 때 관리용 메모리의 용량도 유연하게 확보할 수 있습니다. Since max memory volume is changeable, management memory can be flexibly secured. 
   - Availability Area 가용성 영역: Select an area in which a replication group is to be created. 복제 그룹이 생성될 영역을 선택합니다.
-  - Configuration Profile 설정 프로필: 백업 대상이 된 복제 그룹의 Redis 설정 파일이 표시됩니다.
-    - 설정 프로필을 추가해 변경할 수 있습니다.
+  - Configuration Profile 설정 프로필: 백업 대상이 된 복제 그룹의 Redis 설정 파일이 표시됩니다. Shows Redis configuration files of a replication group bound for backup. 
+    - 설정 프로필을 추가해 변경할 수 있습니다. More configuration file can be added for change.  
   - VPC Subnet: 백업 대상이 된 복제 그룹의 Shows VPC Subnet of a replication group for backup 이 표시됩니다.
-    - 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택할 수 있습니다.
-  - Auto Backup Setting 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
-    - 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
-    - 백업 시작 시간: 백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
-    - 백업 지연 시간: 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 3시간까지 지정할 수 있습니다.
+    - 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택할 수 있습니다. Select a subnet for Compute & Network to allow private network communication.  
+  - Auto Backup Setting 자동 백업 설정: 자동 백업 사용 여부를 선택합니다. Select whether to enable auto backup.
+    - Backup Retention Period백업 보관 기간: Available from 1 day up to 30 days. 1일부터 최대 30일까지 보관할 수 있습니다.
+    - Backup Start Time 백업 시작 시간: Specify start time of backup, by 30-minute interval. 백업 시작 시각을 지정합니다. 30분 단위로 지정할 수 있습니다.
+    - Backup Delay Time백업 지연 시간: To start randomly between backup start time and specified time. Available up to 3 hours. 백업 시작 시각부터 지정한 시간 사이의 임의의 시점에 시작합니다. 3시간까지 지정할 수 있습니다.
+     
 
 ## 설정 프로필 Configuration Profile 
 
@@ -300,7 +301,7 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 ![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_001_ko.png)
 
-3. On **Detail Setting상세 설정**, you may change each profile item. 을 클릭하여 프로필 설정을 항목 별로 변경 할 수 있습니다. 변경 없이 프로필을 등록하면 기본 설정을 사용합니다.
+3. On **Detail Setting상세 설정**, you may change each profile item. When profile is registered without change, default setting is applied. 을 클릭하여 프로필 설정을 항목 별로 변경 할 수 있습니다. 변경 없이 프로필을 등록하면 기본 설정을 사용합니다.
 
 ![pro_003.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_003_ko.png)
 
@@ -310,19 +311,19 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 - 등록한 프로필을 삭제할 수 있습니다. 단, 이용 중인 노드가 있는 프로필은 삭제할 수 없습니다. You may delete a registered profile, unless it has a node in service. 
 
-- 등록한 프로필을 복사하여 사용할 수 있습니다. 또한 복사할때 항목 값을 변경할 수 있습니다. You may copy a registered profile for use. Item  
+- 등록한 프로필을 복사하여 사용할 수 있습니다. 또한 복사할때 항목 값을 변경할 수 있습니다. You may copy a registered profile for use. Item values may be changed when copied. 
 
-- 기본 설정 정보가 있는 기본 프로필을 제공합니다.
+- 기본 설정 정보가 있는 기본 프로필을 제공합니다. Basic profile with default setting information is provided. 
 
-- 기본 프로필은 수정, 삭제할 수 없습니다.
+- 기본 프로필은 수정, 삭제할 수 없습니다. Default profile cannot be modified or deleted. 
 
-- 프로필의 상태를 확인할 수 있습니다.
+- 프로필의 상태를 확인할 수 있습니다. You can check profile status. 
 
 | Status        | Description                                                         |
 | ------------ | ------------------------------------------------------------ |
 | 정상 Normal        | 프로필을 수정, 삭제할 수 있습니다.  Profile can be modified or deleted.                          |
 | 변경 적용 중 Applying Changes | Changed profile and transmitting changes to each node. 프로필을 변경했고 변경 내용을 각 노드에 전파 중인 상태입니다. <br /> Once changes are transmitted, the status is changed to normal. 변경 내용의 전파가 끝나면 상태는 정상으로 변경됩니다. <br /> While change is underway, you cannot create, modify, or delete a replication group. 변경 중 상태에서는 복제 그룹을 작성, 수정, 삭제할 수 없습니다. |
-| 이용 중  In Service    | Replication group is being created or changed with a profile. 프로필을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다. <br />복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다. <br />프로필이 이용중인 상태에서는 프로필을 작성, 수정할 수 없습니다. |
+| 이용 중  In Service    | Replication group is being created or changed with a profile. 프로필을 이용하여 작성, 변경 중인 복제 그룹이 있는 상태입니다. <br />복제 그룹의 작성, 완료 후 상태는 정상으로 변경됩니다. After a replication group is created and completed, the status will be changed to normal. <br />프로필이 이용중인 상태에서는 프로필을 작성, 수정할 수 없습니다. Profile cannot be created or modified while in service. |
 
 
 
