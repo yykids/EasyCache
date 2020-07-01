@@ -335,10 +335,10 @@ Check profile details like below.
 
 - Profile Details
   - Item name
-  - 기입 예: 항목의 입력 예시
-  - 항목 값: 실제 설정된 값
-  - 설명: 항목에 대한 설명
-- 프로필 항목 Profile items 
+  - Example of Input: Example of item input 
+  - Item Value: Actual set values  
+  - Description: Description on items 
+- Profile items 
   - hash-max-ziplist-entries
   - hash-max-ziplist-value
   - latency-monitor-threshold
@@ -353,57 +353,57 @@ Check profile details like below.
   - timeout
   - zset-max-ziplist-entries
   - zset-max-ziplist-value
-  - replica-ignore-maxmemory (redis 5.0 추가)
-  - lazyfree-lazy-eviction (redis 5.0 추가)
-  - lazyfree-lazy-expire (redis 5.0 추가)
-  - lazyfree-lazy-server-del (redis 5.0 추가)
-  - repl-backlog-size (redis 5.0 추가)
-  - stream-node-max-bytes (redis 5.0 추가)
-  - stream-node-max-entries (redis 5.0 추가)
-  - client-query-buffer-limit (redis 5.0 추가)
-  - proto-max-bulk-len (redis 5.0 추가)
+  - replica-ignore-maxmemory (added for redis 5.0)
+  - lazyfree-lazy-eviction (added for redis 5.0)
+  - lazyfree-lazy-expire (added for redis 5.0)
+  - lazyfree-lazy-server-del (added for redis 5.0)
+  - repl-backlog-size (added for redis 5.0)
+  - stream-node-max-bytes (added for redis 5.0)
+  - stream-node-max-entries (added for redis 5.0)
+  - client-query-buffer-limit (added for redis 5.0)
+  - proto-max-bulk-len (added for redis 5.0)
 
-## 알람 Alarm
+## Alert
 
-EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 알림을 수신 그룹에 전달할 수 있습니다.
+EasyCache sends alerts on a particular event occurred from a resource of choice to the recipient group.  
 
 ![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_001.PNG)
 
-### 알람 규칙 Alarm Rules 
+### Alert Rules 
 
-알람 발생 조건과 대상, 수신 그룹을 지정합니다. Specify conditions, targets, and recipient groups of an alarm. 
-1. 원하는 알림을 설정하려면 **알림** 탭에서 **알람 규칙 생성** 버튼을 클릭합니다. To set alarms you need, go to **Alarms** and click **Create Alarm Rules**. 
+Specify conditions, targets, and recipient groups of an alert. 
+1. To set alarms you need, go to **Alert** and click **Create Alert Rules**. 
 
-2. **알람 규칙 생성** 대화 상자에서 알람 발생 조건과 알람을 수신할 수신 그룹을 지정합니다. On the **Create Alarm Rules** window, specify the condition for setting off an alarm and recipient groups. 
+2. On the **Create Alert Rules** window, specify the condition for sending an alert and recipient groups. 
 ![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_002.PNG)
 
-3. 알람 발생 조건에는 **메트릭 조건**과 **이벤트 조건**, 2가지가 있습니다.
+3. There are two alert condition sets: **Metric Condition** and **Event Condition**.   
 
-- **메트릭 조건**: 캐시 인스턴스에서 수집한 각종 성능 지푯값(모니터링 항목 참조)을 이용해 알람 조건을 지정하며 다음과 같은 조건을 지정할 수 있습니다.
-  - 메트릭 이름, 연산자, 집계의 종류, 평가의 빈도, 임곗값
-- **이벤트 조건**: 서비스 내에서 발생하는 모든 이벤트 중에서 알람을 받고 싶은 이벤트(이벤트 항목 참조)를 지정할 수 있습니다.
+- **Metric Condition메트릭 조건**: By using performance indicators (see monitoring items) that are collected from cache instances, conditions can be specified like follows: 캐시 인스턴스에서 수집한 각종 성능 지푯값(모니터링 항목 참조)을 이용해 알람 조건을 지정하며 다음과 같은 조건을 지정할 수 있습니다.
+  - Metric name, operator, type of collection, frequency of evaluation, and threshold value 메트릭 이름, 연산자, 집계의 종류, 평가의 빈도, 임곗값
+- **Event Condition이벤트 조건**: Specify events to be alerted (see event items) out of all events occurred within service.
 
-4. **수신 그룹 보기**을 클릭해 수신 그룹을 확인 또는 추가할 수 있습니다.
+4. Click **View Recipient Groups수신 그룹 보기** to check or add more recipient groups.  클릭해 수신 그룹을 확인 또는 추가할 수 있습니다.
 
-5. 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상입니다. 특정 복제 그룹용으로 알람 규칙을 작성하려면 **대상 복제 그룹**에 복제 그룹을 지정합니다.
+5. Alert rules are basically applied to all replication groups. To create an alert rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상입니다. 특정 복제 그룹용으로 알람 규칙을 작성하려면 **대상 복제 그룹**에 복제 그룹을 지정합니다.
 
-6. 설정 후 **생성** 버튼을 클릭합니다.
+6. After setting is done, click **Create**. 설정 후 **생성** 버튼을 클릭합니다.
 
-작성한 알람 규칙은 알람 기능을 사용 안 함으로 변경해 일시적으로 끌 수 있습니다.
+Alert rules, after created, can be disabled and temporarily turned off. 작성한 알람 규칙은 알람 기능을 사용 안 함으로 변경해 일시적으로 끌 수 있습니다.
 
 ### 수신 그룹 Recipient Group 
 
-알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다.
+알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다. Recipients of alerts can be managed under each group. 
 
 ![not_re_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_004.PNG)
 
-- 수신 그룹을 확인하려면 **수신 그룹 보기** 버튼을 클릭합니다.
-- 원하는 수신 그룹이 없다면 **수신 그룹 생성** 버튼을 클릭해 새로운 수신 그룹을 작성합니다.
-- 수신 그룹에서 지정할 수 있는 수신인은 프로젝트 멤버로 한정됩니다.
-  - TOAST 회원 정보에 등록한 메일 주소와 전화번호로 메일 또는 SMS를 보낼 수 있습니다.
+- To check recipient groups, click 수신 그룹을 확인하려면 **View Recipient Groups 수신 그룹 보기** 버튼을 클릭합니다.
+- If you don't have a group in need, click **Create Recipient Groups** to create a new group. 원하는 수신 그룹이 없다면 **수신 그룹 생성** 버튼을 클릭해 새로운 수신 그룹을 작성합니다.
+- Available recipients to be specified by each group are confined to project members only. 수신 그룹에서 지정할 수 있는 수신인은 프로젝트 멤버로 한정됩니다.
+  - Email or SMS TOAST 회원 정보에 등록한 메일 주소와 전화번호로 메일 또는 SMS를 보낼 수 있습니다.
 - 알람 규칙에서 사용 중인 수신 그룹을 삭제하면 다른 수신 그룹이 없는 알람 규칙의 경우 더이상 알람을 보내지 않게 되므로 주의해야 합니다.
 
-##### 제약 사항 Constraints 
+##### Constraints 
 
 - 알람 규칙의 대상 복제 그룹에 한 개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제한 경우, 알람은 유일한 대상 복제 그룹이 없어져 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
 - 알람 규칙의 수신 그룹에 한 개의 수신 그룹만 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제한 경우, 알람은 유일한 수신 그룹이 없어져 이후부터는 알람을 보낼 수 없게 됩니다.
