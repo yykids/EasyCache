@@ -379,36 +379,36 @@ Specify conditions, targets, and recipient groups of an alert.
 
 3. There are two alert condition sets: **Metric Condition** and **Event Condition**.   
 
-- **Metric Condition메트릭 조건**: By using performance indicators (see monitoring items) that are collected from cache instances, conditions can be specified like follows: 캐시 인스턴스에서 수집한 각종 성능 지푯값(모니터링 항목 참조)을 이용해 알람 조건을 지정하며 다음과 같은 조건을 지정할 수 있습니다.
-  - Metric name, operator, type of collection, frequency of evaluation, and threshold value 메트릭 이름, 연산자, 집계의 종류, 평가의 빈도, 임곗값
-- **Event Condition이벤트 조건**: Specify events to be alerted (see event items) out of all events occurred within service.
+- **Metric Condition**: Alert conditions are specified by using performance indicators (see monitoring items) that are collected from cache instances, like follows: 
+  - Metric name, operator, type of collection, frequency of evaluation, and threshold value 
+- **Event Condition**: Specify events to be alerted (see event items) out of all events occurred within service.
 
-4. Click **View Recipient Groups수신 그룹 보기** to check or add more recipient groups.  클릭해 수신 그룹을 확인 또는 추가할 수 있습니다.
+4. Click **View Recipient Groups** to check or add more recipient groups.  
 
-5. Alert rules are basically applied to all replication groups. To create an alert rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 작성한 알람 규칙은 기본적으로는 모든 복제 그룹이 대상입니다. 특정 복제 그룹용으로 알람 규칙을 작성하려면 **대상 복제 그룹**에 복제 그룹을 지정합니다.
+5. Alert rules are basically applied to all replication groups. To create an alert rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 
 
-6. After setting is done, click **Create**. 설정 후 **생성** 버튼을 클릭합니다.
+6. After setting is done, click **Create**. 
 
-Alert rules, after created, can be disabled and temporarily turned off. 작성한 알람 규칙은 알람 기능을 사용 안 함으로 변경해 일시적으로 끌 수 있습니다.
+Alert rules, after created, can be disabled and temporarily turned off. 
 
-### 수신 그룹 Recipient Group 
+### Recipient Groups 
 
-알림을 받을 수신자를 그룹으로 만들어서 관리할 수 있습니다. Recipients of alerts can be managed under each group. 
+Recipients of alerts can be managed under each group. 
 
 ![not_re_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_004.PNG)
 
-- To check recipient groups, click 수신 그룹을 확인하려면 **View Recipient Groups 수신 그룹 보기** 버튼을 클릭합니다.
-- If you don't have a group in need, click **Create Recipient Groups** to create a new group. 원하는 수신 그룹이 없다면 **수신 그룹 생성** 버튼을 클릭해 새로운 수신 그룹을 작성합니다.
-- Available recipients to be specified by each group are confined to project members only. 수신 그룹에서 지정할 수 있는 수신인은 프로젝트 멤버로 한정됩니다.
-  - Email or SMS TOAST 회원 정보에 등록한 메일 주소와 전화번호로 메일 또는 SMS를 보낼 수 있습니다.
-- 알람 규칙에서 사용 중인 수신 그룹을 삭제하면 다른 수신 그룹이 없는 알람 규칙의 경우 더이상 알람을 보내지 않게 되므로 주의해야 합니다.
+- To check recipient groups, click **View Recipient Groups**.
+- If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
+- Available recipients to be specified by each group are confined to project members only. 
+  - Messages can be mailed or texted to the email address or phone number registered for TOAST membership. 
+- Note that, by deleting a current recipient group for alert rules, no more alerts are to be sent if there is no other recipient group. 
 
 ##### Constraints 
 
-- 알람 규칙의 대상 복제 그룹에 한 개의 복제 그룹만을 입력하고, 해당 복제 그룹을 복제 그룹 화면에서 삭제한 경우, 알람은 유일한 대상 복제 그룹이 없어져 이후부터는 모든 복제 그룹을 대상으로 인식합니다.
-- 알람 규칙의 수신 그룹에 한 개의 수신 그룹만 입력하고, 해당 수신 그룹을 수신 그룹 상세 화면에서 삭제한 경우, 알람은 유일한 수신 그룹이 없어져 이후부터는 알람을 보낼 수 없게 됩니다.
-- 복제 그룹 생성의 알람은 대상 복제 그룹이 있어도 모든 복제 그룹이 대상이 되어 알람을 보냅니다.
-- 프로젝트에 새로운 사용자를 추가할 경우 수신 그룹의 프로젝트 유저 목록에 동기화되기까지 1시간 정도의 대기 시간이 발생할 수 있습니다.
+- If there is only one replication group as target of alert rules, and if the group has been deleted from the replication group page, further alerts are to be sent for all replication groups because its only replication group is gone. 
+- If there is only one recipient group for alert rules, and if the group has been deleted from the detail recipient group page, no further alerts can be sent because its only recipient group is gone. 
+- Alerts for the creation of a replication group are sent for all replication groups, even if there is a target replication group.  
+- If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient grouop. 
 
 ## Events
 
@@ -433,7 +433,7 @@ Alert rules, after created, can be disabled and temporarily turned off. 작성�
 |Type | Event   | Event Details |
 |-----| ------ | ---------------- |
 | **Replication Group** | Delete   | Started, Failed, Closed |
-|             | Create   | Started시작, Failed, Closed |
+|             | Create   | Started, Failed, Closed |
 |             | Modify   | Started, Failed, Closed |
 |             | Restart  | Strated, Failed, Closed |
 | **Publicly Credited Domain** | Setting | Started, Failed, Closed |
