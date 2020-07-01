@@ -445,7 +445,7 @@ Recipients of alerts can be managed under each group.
 |         | Status | Disabled, Enabled |
 | **Profile** | Modify | Started, Failed, Closed |
 | **Auto HA** | Delete  | Started, Closed  |
-|            | Set | Started, Failed, Closed  |
+|            | Setting | Started, Failed, Closed  |
 | **Failover** |  | Successful |
 | **Backup** | Manual Backup | Started, Failed, Closed  |
 |        | Auto Backup | Started, Failed, Closed |
