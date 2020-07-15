@@ -48,7 +48,7 @@ Redis가 지원하는 Replica 노드를 만들어 가용성을 높일 수 있습
 
 1. Replica 노드를 만들려면 원본 복제 그룹을 선택한 후 **노드 추가** 버튼을 클릭합니다.
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_node_add_002.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_node_add_002.PNG)
 
 2. Master 노드가 다운되었는지 판단하기 위해 헬스 체크 응답 대기 시간을 설정할 수 있습니다. 기본값은 3000ms입니다.
 
@@ -80,7 +80,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 - Replica 노드 추가 시 HA 설정에 실패하면 **복제 그룹 > 기본 정보**에서 **HA 재설정** 버튼을 클릭해 HA를 다시 설정할 수 있습니다.
 
-![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_ha_error_001.PNG)
+![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_ha_error_001.PNG)
 
 - 장애가 발생해 장애 조치를 한 경우, 장애가 발생한 기존 Master 노드는 중지됩니다. 장애가 발생한 노드를 삭제하면 고가용성 기능을 사용하지 않는 일반 Standalone의 Master 노드로 변경됩니다.
 - Standalone이 된 Master 노드에 Replica 노드를 추가하면 고가용성 기능을 새로 지정해 사용할 수 있습니다.
@@ -92,7 +92,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 1. 원본 복제 그룹을 선택하고 **수정** 버튼을 클릭합니다.
 2. **복제 그룹 수정** 대화 상자에서 이름과 백업 기간 등을 설정합니다.
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_modify_002.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_modify_002.PNG)
 
 - 복제 그룹 이름: 복제 그룹 이름을 변경할 수 있습니다.
 - 설명: 복제 그룹 설명을 변경할 수 있습니다.
@@ -126,7 +126,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 1. 수동 백업 파일을 만들려면  대상 복제 그룹을 선택한 후 **수동 백업** 버튼을 클릭합니다.
 2. **수동 백업** 대화 상자에서 정보를 입력하고 **백업** 버튼을 클릭합니다. 
     데이터 크기에 비례해 백업 생성 시간이 늘어날 수 있습니다.
-    ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.04.28/rep_manual_backup_001.PNG)
+    ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_manual_backup_001.PNG)
 
 - 백업 이름: 백업 이름을 입력합니다.
 - 설명: 백업 설명을 입력합니다.
@@ -136,7 +136,17 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 * 복제 그룹은 같은 서브넷을 사용하는 인스턴스에서 만이 접속할 수 있습니다만, 외부에서 접속을 하고 싶다면 도메인 관리에서 공인 도메인 설정을 하실 수 있습니다.
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.05.14/rep_public_domain_001.png)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
+
+### 인스턴스 타입 변경
+
+* 사용 중인 노드의 인스턴스 타입을 변경할 수 있습니다. 
+* 인스턴스 타입은 현재 노드보다 사양이 높은 인스턴스로만 변경할 수 있습니다.
+* 인스턴스 타입 변경 중에 노드는 잠시 정지됩니다. 
+* 복제 그룹이 Standalone일 경우 인스턴스 타입을 변경하면 백업 시점의 데이터로 돌아가며, 백업을 하지 않으면 데이터가 초기화됩니다.
+* Replica 노드가 있을 경우 Master 노드의 인스턴스 타입 변경을 위해 장애 조치(failover)가 발생합니다.
+
+![instance_type_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_instance_type_001.png)
 
 ##### 제약 사항
 
@@ -150,7 +160,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 생성된 복제 그룹을 선택하고 **기본 정보** 탭을 누르면 복제 그룹의 상세 정보를 확인할 수 있습니다.
 
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_detail_002.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_detail_002.PNG)
 
 확인할 수 있는 항목은 다음과 같습니다.
 
@@ -166,7 +176,7 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
 
 생성된 복제 그룹을 선택하고 **접속 정보** 탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_connection_info_kr.png)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_connection_info_kr.png)
 
 - 암호화된 비밀번호를 보려면 **보기** 버튼을 클릭합니다.
 - **복사**버튼을 누르면 비밀번호를 복사할 수 있습니다.
@@ -184,7 +194,7 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
 
 생성된 복제 그룹을 선택하고 **노드 정보** 탭을 누르면 복제 그룹 노드의 상세 정보를 확인하고 Replica 노드를 Master 노드로 승격할 수 있습니다.
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_node_info_002.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_node_info_002.PNG)
 
 - Replica 노드를 선택하고 마스터 승격을 누르면, 선택한 Replica 노드를 Master 노드로 승격할 수 있습니다. 이 때 Master 노드는 Replica 노드로 변경됩니다.
 - 확인할 수 있는 항목은 다음과 같습니다.
@@ -433,6 +443,7 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 |             | 생성   | 시작, 실패, 종료 |
 |             |  수정   | 시작, 실패, 종료 |
 |             |  재시작 | 시작, 실패, 종료 |
+|             |  그룹 인스턴스 변경 | 시작, 실패, 종료 |
 | **공인 도메인** | 설정 | 시작, 실패, 종료 |
 |             | 해제 | 시작, 실패, 종료 |
 | **캐시 인스턴스** | 연결 | 성공, 실패 |
@@ -440,6 +451,7 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 |         | 추가 | 시작, 실패, 종료 |
 |         | 마스터 승격 | 시작, 실패, 종료 |
 |         | 상태 | 비활성화됨, 활성화됨 |
+|         |  노드 인스턴스 변경 | 시작, 실패, 종료 |
 | **프로필** | 수정 | 시작, 실패, 종료 |
 | **자동 HA** | 삭제 | 시작, 종료 |
 |            | 설정 | 시작, 실패, 종료 |

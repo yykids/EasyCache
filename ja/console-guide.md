@@ -8,7 +8,7 @@
 ### レプリケーショングループ作成
 * Console > Database > EasyCacheの **レプリケーショングループ** タブで作成ボタンを押すと、レプリケーショングループ作成ウィンドウが表示されます。
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_create_001.PNG)
 
 * 設定ウィンドウに表示された必須項目を全て入力し、下部の作成ボタンを押してください。
     * レプリケーショングループ名：レプリケーショングループの名前を入力します。
@@ -45,7 +45,7 @@
 * 可用性を高めるために、RedisがサポートするReplicaノードを作成できます。
 * Replicaノードを作成するには、コピー元のレプリケーショングループを選択した後、ノード追加ボタンを押します。
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_node_add_001.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_node_add_001.PNG)
 
 * Masterノードがダウンしているかを判断するために、ヘルスチェック応答待機時間を設定できます。デフォルトで値は3000msです。
 * Replicaノードが作成されるアベイラビリティーゾーンを選択できます。コピー元のMasterノードとは別のアベイラビリティーゾーンを選択することを推奨します。
@@ -69,7 +69,7 @@
 ##### 制約事項
 * Replicaノード追加時、HA設定が失敗するとレプリケーショングループ> [基本情報]でHA再設定ボタンを押してHAを再設定できます。
 
-![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_ha_error_001.PNG)
+![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_ha_error_001.PNG)
 
 * 障害が発生してフェイルオーバーを行った場合は、障害が発生した既存Masterノードは停止します。障害が発生したノードを削除すると、高可用性機能を使用しない一般standaloneのMasterノードに変更されます。
 * またstandaloneになったMasterノードにReplicaノードを追加すると、高可用性機能を再度新たに指定して使用できます。
@@ -88,7 +88,7 @@
         * バックアップ開始時間：バックアップ開始時刻を指定します。30分単位で指定可能です。
         * バックアップ所要時間：バックアップ開始時刻から指定した時間までの任意の時点で開始します。1時間から最大3時間まで指定可能です。
 
-![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_modify_001.PNG)
+![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_modify_001.PNG)
 
 * 変更内容を確認し、**変更** ボタンを押します。
 * 一度設定したサービスポート、Redisバージョン、インスタンスタイプ、アベイラビリティゾーンは変更できません。
@@ -109,7 +109,7 @@
 * 定められたバックアップ保存期間が過ぎると、バックアップファイルは自動的に削除されます。
 * バックアップ対象のレプリケーショングループが削除されると、基本情報にレプリケーショングループの詳細内容は表示されません。
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.01.16/rep_manual_backup_001.PNG)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.10/rep_manual_backup_001.PNG)
 
 * 手動バックアップファイルを作成するために、対象レプリケーショングループを選択した後、 **手動バックアップ** ボタンを押します。
     * バックアップ名：バックアップの名前を入力します。
@@ -121,7 +121,7 @@
 ### ドメイン管理
 * レプリケーショングループは同じサーブネットを利用するインスタンスからのみアクセスでますが、外部からアクセスしたい場合はドメイン管理でパブリクドメインを設定できます。
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.05.14/rep_public_domain_002.png)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.10/rep_public_domain_002.png)
 
 ##### 制約事項
 * 手動バックアップの実行中は、重複して手動バックアップを行えません。進行中の手動バックアップが完了してから再度試行してください。
@@ -139,7 +139,7 @@
 * 作成されたレプリケーショングループを選択し、**基本情報** タブを押します。
 * レプリケーショングループの詳細情報を確認できます。
 
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_detail_info_001.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_detail_info_001.PNG)
 
 * 確認可能な項目は下記のとおりです。
     * レプリケーショングループ名
@@ -163,7 +163,7 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
 
 * 作成されたレプリケーショングループを選択し、接続情報タブを押します。
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.02.21/rep_connection_info_ja.png)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_connection_info_ja.png)
 
 * 暗号化されたパスワードは表示ボタンを押すと確認できます。
 * コピーボタンを押すと、パスワードをコピーできます。
@@ -180,7 +180,7 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
 * 作成されたレプリケーショングループを選択し、ノード情報タブを押すとレプリケーショングループのノードの詳細情報を確認できます。
 * また、ReplicaノードをMasterノードに昇格させることができます。
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.01.16/rep_node_info_001.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_node_info_001.PNG)
 
 * Replicaノードを選択し、マスター昇格を押すと、選択したReplicaノードをMasterノードに昇格できます。この時、MasterノードはReplicaノードに変更されます。
 * 確認可能な項目は下記のとおりです。
