@@ -10,7 +10,7 @@ EasyCache를 사용하려면 가장 먼저 복제 그룹을 생성해야 합니�
 
 1. **Console > Database > EasyCache**의 **복제 그룹** 탭에서 **생성** 버튼을 누르면 **복제 그룹 생성** 창이 나타납니다.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.08.07/rep_create_001.PNG)
 
 2. 설정 창에서 표시된 필수 항목을 모두 입력하고 하단의 **생성** 버튼을 클릭합니다.
 
@@ -29,6 +29,7 @@ EasyCache를 사용하려면 가장 먼저 복제 그룹을 생성해야 합니�
       - 기본 프로필을 제공합니다.
       - 설정 프로필을 추가해 선택할 수 있습니다.
     - VPC Subnet: 사설(private) 네트워크 통신을 원하는 Compute & Network 서비스의 서브넷을 선택합니다. 선택하지 않으면 기본 네트워크로 설정됩니다.
+    - 비밀번호 설정: 비밀번호 셜정 여부를 선택합니다. 기본값은 '비밀번호 설정'입니다.
     - 자동 백업 설정: 자동 백업 사용 여부를 선택합니다.
       - 백업 보관 기간: 1일부터 최대 30일까지 보관할 수 있습니다.
       - 백업 시작 시간: 백업 시작 시간을 지정합니다. 30분 단위로 지정할 수 있습니다.
@@ -176,7 +177,7 @@ Replica 노드가 있을 경우에 확인할 수 있는 항목은 아래와 같�
 
 생성된 복제 그룹을 선택하고 **접속 정보** 탭을 누릅니다.
 
-![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_connection_info_kr.png)
+![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.08.07/rep_connection_info_kr.png)
 
 - 암호화된 비밀번호를 보려면 **보기** 버튼을 클릭합니다.
 - **복사**버튼을 누르면 비밀번호를 복사할 수 있습니다.

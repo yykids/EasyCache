@@ -8,7 +8,7 @@
 ### レプリケーショングループ作成
 * Console > Database > EasyCacheの **レプリケーショングループ** タブで作成ボタンを押すと、レプリケーショングループ作成ウィンドウが表示されます。
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.08.05/rep_create_001.PNG)
 
 * 設定ウィンドウに表示された必須項目を全て入力し、下部の作成ボタンを押してください。
     * レプリケーショングループ名：レプリケーショングループの名前を入力します。

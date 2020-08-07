@@ -10,7 +10,7 @@ To use EasyCache, you must create replication groups in the first place.
 
 1. On **Console > Database > EasyCache** and **Replication Groups**, click **Create**, and **Create Replication Groups** popup shows. 
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.08.04/rep_create_001.PNG)
 
 2. Enter all requirements on the setting window and click **Create** at the bottom.
 
