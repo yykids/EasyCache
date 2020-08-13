@@ -122,7 +122,7 @@
 ### ドメイン管理
 * レプリケーショングループは同じサーブネットを利用するインスタンスからのみアクセスでますが、外部からアクセスしたい場合はドメイン管理でパブリクドメインを設定できます。
 
-![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
+![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.08.05/rep_public_domain_001.png)
 
 ### インスタンスタイプ変更
 
@@ -132,7 +132,7 @@
 * レプリケーショングループがStandaloneの場合、インスタンスタイプを変更するとバックアップ時点のデータに戻り、バックアップを行っていない場合、データが初期化されます。
 * Replicaノードがある場合、Masterノードのインスタンスタイプを変更するためにフェイルオーバー(failover)が発生します。
 
-![instance_type_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_instance_type_001.png)
+![instance_type_001.png](https://static.toastoven.net/prod_easycache/20.08.05/rep_instance_type_001.png)
 
 ##### 制約事項
 * 手動バックアップの実行中は、重複して手動バックアップを行えません。進行中の手動バックアップが完了してから再度試行してください。
