@@ -139,8 +139,9 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
-### 인스턴스 타입 변경
+### 인스턴스 타입 변경 
 
+* 한시적으로 해당 기능을 이용할 수 없습니다. (~ 2021년 2월 예정)
 * 사용 중인 노드의 인스턴스 타입을 변경할 수 있습니다. 
 * 인스턴스 타입은 현재 노드보다 사양이 높은 인스턴스로만 변경할 수 있습니다.
 * 인스턴스 타입 변경 중에 노드는 잠시 정지됩니다. 
