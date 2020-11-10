@@ -211,7 +211,7 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
 
 各ノードで最大1か月間のログを検索できます。 
 
-![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.10.30/node_log_view_001.png)
+![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.11.10/node_log_view_001.png)
 
 - **1時間**、**24時間**、**1週**、**指定** ボタンを押して検索期間を変更できます。 
 - **指定**ボタンをクリックすると表示されるカレンダーで検索期間を自由に指定できます。 
