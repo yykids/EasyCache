@@ -97,12 +97,12 @@ By adding a replica node to the standalone master node, high availability is aut
 - Description: Description of a replication group can be changed. 
 - Configuration Profile: Redis setting can be changed. 
 - Max Memory: Volume of the maximum memory for usage can be changed. 
-- Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
 - Auto Backup Setting: Select whether to use auto backup. 
 	- Backup Retention Period: From 1 day, up to 30 days
 	- Backup Start Time: Specify start time of a backup, by 30-minute interval.
 	- Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
-
+- With existing replica nodes, you can check the following:
+  - Master Down Decision Time: You can set up a health check response wait time to determine if the master node is down. The default value is 3,000 ms.
 3. Check changes and click **Change**. 
     Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured. 
 ### Auto Backups
@@ -197,6 +197,19 @@ Select a created replication group and press **Node Information**, and you can c
 - Select a replica node and press Promote to Master, and the selected replica node is promoted to the master node. Then, the existing master node is changed to a replica node. 
 - Following items can be found: 
   - Name, type, IP, availability area, date of creation, and status of node 
+  
+##### View Log
+
+You can check up to 1 month's worth of log for each node. 
+
+![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.10.30/node_log_view_001.png)
+
+- Click the **1 Hour**, **24 Hours**, **1 Week**, or **Custom** button to select a search period. 
+- Select the **Custom** button to select a desirable period on the calendar. 
+- Click the **Current Time** button to search the selected period again based on the present time.
+- Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of period selected.
+- Click the **View All Logs** button to see all logs from the last month in a new window.
+
 
 ## Monitoring 
 
