@@ -1,4 +1,9 @@
-## Database > EasyCache > 릴리스 노트
+## Database > EasyCache > Release Notes
+
+### November 24, 2020
+#### Improvements/changes
+* View All Logs added
+
 
 ### 2020. 10. 27.
 
