@@ -130,12 +130,36 @@ You may create a backup for replication group at a time of choice. Even if a rep
 - Description: Enter description of a backup. 
 - Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
 
-### Manage Domains
+### Accredited domain setup
 
-* Access to a replication group is available only on instances sharing the same subnet; but to enable external access, configure public domain setting from domain management. 
-
+* Only instances that use the same subnet can log in to duplicate group. However, if you want to allow external login, you may set up the accredited domain.
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
+### Read-only domain setup
+
+* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click **Read-only domain setup** to set up a read-only domain.
+* The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a duplicate group, and this is where the IP of the Replica node is bound to.
+* Go to **duplicate group > login information** if you want to check the read-only domain you set.
+* If failover occurs due to the fault of the Master node
+  * Until the old Master node is recovered with the Replica node or a new Replica node is added after deleting the old one, read-only domain maintains the state of having the IP of the old Replica node that has been promoted to the Master node due to the failover.
+  * If the old Master node is recovered with the Replica node or a new Replica node is added after deleting the old one, the binding of the read-only domain changes to the IP of the new Replica node.
+    * If binding fails, you can manually retry in **duplicate group > login information**.
+* When the Replica node fails
+  * The binding of the read-only domain changes to the IP of the Master node.
+  * If the Replica node is recovered or a new Replica node is added after deleting the old one, the binding of the read-only domain changes to the IP of the new  Replica node.
+    * If binding fails, you can manually retry in **duplicate group > login information**.
+* While read-only domain is set up, you can delete the Replica node or duplicate group, or disable the service.
+  * While read-only domain is set up, if the Replica node is deleted, the binding of the read-only domain changes to the IP of the Master node.
+  * While read-only domain is set up, if duplicate group is deleted or its service is disable, the read-only domain is unbound.
+
+##### Constraints
+
+* When the binding of the read-only domain is changed
+  * When binding is changed without login interruption (for instance, when new Replica node is added after failover of the Master node)
+    * If the client logged in as a read-only domain supports the detection of binding change in domains or such logic is implemented, user is logged in again using the changed binding IP. Otherwise, user has to terminate the current login and log in again.
+  * When binding change results in disconnection (e.g. when Replica node fails or is deleted)
+    * If the client supports automatic relogin or such logic is implemented, user is logged in with the changed binding IP. Otherwise, user has to log in again.
+    
 ### Change Instance Types 
 
 * It is available to change the instance type of a node in service.  
