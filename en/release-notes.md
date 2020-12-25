@@ -1,5 +1,22 @@
 ## Database > EasyCache > 릴리스 노트
 
+### December 29, 2020
+
+#### More Features
+
+* Added read-only domain function
+
+#### Updates/Changes
+
+* Improved the function related to login control information
+* Improved to show guidance when mouse is hovered over the **Change instance type** button 
+* Changed the dialog button name from **OK** to **Confirm**
+
+#### Bug fixes
+
+* Fixed the issue where, when changing the profile of a duplicate group, if profile is modified before changing the profile, the task of profile modification fails and made unavailable
+* Fixed the issue of Korean filter option names were displayed when the website language is set to 'Japanese'
+
 ### 2020. 10. 27.
 
 #### 버그 수정
